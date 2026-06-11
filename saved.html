@@ -1,0 +1,515 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Saved Cars - SahabatzRide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfe0e0",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#434654",
+                        "on-secondary-fixed-variant": "#454747",
+                        "background": "#f9f9ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary": "#7b2600",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-container": "#e8edff",
+                        "primary-container": "#0052cc",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-background": "#041b3c",
+                        "surface-container-highest": "#d7e2ff",
+                        "inverse-surface": "#1d3052",
+                        "surface-dim": "#cadaff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-primary-fixed": "#001848",
+                        "secondary": "#5d5f5f",
+                        "surface-container-high": "#e0e8ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "primary": "#003d9b",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-variant": "#d7e2ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-container": "#616363",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-surface": "#041b3c",
+                        "surface": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline": "#737685",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "outline-variant": "#c3c6d6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-tertiary-container": "#ffc6b2",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-low": "#f1f3ff",
+                        "tertiary-container": "#a33500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "sm": "12px",
+                        "margin-desktop": "80px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .compare-row:nth-child(even) {
+            background-color: rgba(0, 61, 155, 0.02);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-container-highest shadow-sm"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-4">
+    <span class="material-symbols-outlined text-primary text-headline-md cursor-pointer">menu</span>
+    <h1 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed-dim">SahabatzRide</h1>
+  </div>
+  <nav class="hidden md:flex gap-8 items-center">
+    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Home</a>
+    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Search</a>
+    <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-1 font-label-md text-label-md" href="#">Saved</a>
+    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Bookings</a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-primary/20 shadow-sm">
+      <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Uo_U-ntDtOezsn1MOuQ0ujyYUP6cDGFjUfrsyNUh5rfrxzE1AfrepRs2uvzQ0DgslkmdkkPUksqxCk1pfqYUIrOv_44FE0VfMuBm7bWqAJ8jz_7PdlDjLTX9CvUXRR4EymWxdcJu4Vm78H38ZDc44GnWk6ZXKort2Nc3mAXSXs9U0G6m1FDpwqzlO6bAhfk038aenki1D3dF2tPx5NLSk9qyFQZaQ0_ItJabni8pTN-WpAirBrpCZOtBI5q_1rwrujsSh_uJ1XA">
+    </div>
+  </div>
+</div></header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-sm">
+<div>
+<nav class="flex items-center gap-2 mb-2 text-outline text-caption font-caption">
+<a class="hover:text-primary" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="">Saved Vehicles</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Compare Your Favorites</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">You have 3 vehicles saved for your next trip to Kota Kinabalu.</p>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-inner">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface shadow-sm text-primary font-label-md transition-all active:scale-95" id="view-grid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+                    Grid View
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-all active:scale-95" id="view-compare">
+<span class="material-symbols-outlined">compare_arrows</span>
+                    Table Compare
+                </button>
+</div>
+</div>
+<!-- Comparison Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Comparison Card 1 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col shadow-md">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sleek, modern white compact SUV parked in a well-lit urban campus environment under clear blue skies. The image is captured with professional automotive photography techniques, highlighting the metallic finish and streamlined design. The overall aesthetic is clean and premium, aligning with a professional car rental service for students." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqFw2nLRUhKsmR3OYVV6htHXV_3wJnV6d2kK3R01Pi4xR7l7bPBM-FI0R39rJvae6TnXtEvbq5jZLstHqo-OgMfQCCcJbiIB2q9Mn_LMMgWBCc43PoheKLYHIQn5etXVa9gf9fhr8SdnDnkJ2GEJ9RnKY9gabQSGxKmlgzmE6K_WmlvFeq18M4GCQ3HO_Ad-UP8IIflCJ3Oz0kwayKMxkT3zZawoi138vShdzQCRsUNa5RaCRGi0unAlqoHoIGysPExeTlVARhfAo">
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 rounded-full bg-white/90 glass-effect flex items-center justify-center text-error shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary px-3 py-1 rounded-full text-white font-label-md text-caption flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Available Now
+                            </span>
+</div>
+</div>
+<div class="p-base flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Proton X50</h3>
+<p class="text-on-surface-variant font-body-md text-caption">Compact SUV • 2023 Model</p>
+</div>
+<div class="text-right">
+<span class="text-primary font-bold text-headline-md">RM 145</span>
+<p class="text-outline font-caption text-caption">per day</p>
+</div>
+</div>
+<!-- Spec Aligned Row -->
+<div class="grid grid-cols-3 gap-xs border-y border-outline-variant/20 py-sm mb-sm">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">event_seat</span>
+<span class="text-on-surface font-label-md text-caption">5 Seats</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant/20">
+<span class="material-symbols-outlined text-outline">settings</span>
+<span class="text-on-surface font-label-md text-caption">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">local_gas_station</span>
+<span class="text-on-surface font-label-md text-caption">Petrol</span>
+</div>
+</div>
+<div class="space-y-2 mb-lg">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                                Full insurance included
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+                                Pick up at UMS Library
+                            </div>
+</div>
+<button class="w-full bg-primary text-white h-12 rounded-xl font-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-md">
+                            Book This Ride
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comparison Card 2 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col shadow-md">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A clean, silver Perodua Myvi hatchback parked in a bright, modern university parking lot. The sun reflects off the polished surface of the car. The composition is minimalist and high-contrast, emphasizing the efficiency and reliability of the vehicle. Soft shadows and a clean background create a professional corporate rental atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOxrKYpznmCwSIF4hb4uFp9Qw2pdS77jLIBW2U9eDvFwb2pnWvRVkHHIUTSzOKB-befOlQZJC6sOtkr1c5tA7vA8eQRIGhmoTCBrcvz_eOg_-GVjAwxj2FOcMvetjsUg41W1b6p3BxQIEWIPvrX-ZYDw5YK3U42ugnJCwM3H5P7zzGjnszpDfuzzxXMumcD-cJtK1ummZ4hlm13IZOI2YQ0LoSMf_Fq-35XMTMkd7wYpogI3wRyTDTNIPbK9wbogOGIdPUrjAMrTw">
+<div class="absolute top-4 right-4">
+<button class="w-10 h-10 rounded-full bg-white/90 glass-effect flex items-center justify-center text-error shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-secondary text-white px-3 py-1 rounded-full font-label-md text-caption flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                Limited Stock
+                            </span>
+</div>
+</div>
+<div class="p-base flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Perodua Myvi</h3>
+<p class="text-on-surface-variant font-body-md text-caption">Hatchback • 2022 Model</p>
+</div>
+<div class="text-right">
+<span class="text-primary font-bold text-headline-md">RM 90</span>
+<p class="text-outline font-caption text-caption">per day</p>
+</div>
+</div>
+<!-- Spec Aligned Row -->
+<div class="grid grid-cols-3 gap-xs border-y border-outline-variant/20 py-sm mb-sm">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">event_seat</span>
+<span class="text-on-surface font-label-md text-caption">5 Seats</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant/20">
+<span class="material-symbols-outlined text-outline">settings</span>
+<span class="text-on-surface font-label-md text-caption">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">local_gas_station</span>
+<span class="text-on-surface font-label-md text-caption">Petrol</span>
+</div>
+</div>
+<div class="space-y-2 mb-lg">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                                Basic insurance included
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+                                Pick up at UMS ODS
+                            </div>
+</div>
+<button class="w-full bg-primary text-white h-12 rounded-xl font-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-md">
+                            Book This Ride
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comparison Card 3 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col shadow-md">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional deep blue Toyota Vios sedan positioned in front of a modern architectural building on a bright day. The image captures the vehicle's clean lines and business-ready appearance. The lighting is crisp, emphasizing the high-gloss blue finish, suitable for a professional and reliable car rental service aimed at students and faculty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-0Qvv6EjK213py3RUomk9iSTzhNivdUUDNQKbsQvK5-5-AcPcGOn8w424PD9MaPIHQXEgP7i3LR1BGoRJXjHxzm7tMfx6c5oJgKgpZRM9JKbeJEJRaYAqW4wDYsIM0J1cRv3c22dYG0aXPcs5FylNFUO2PhoQwbteWlmXNMTxqTXPe-mldAyst5WSydrLjrzjy0oxUKWS-MRXep77J-NoSZHL5-K313vWky1hYkSHK-esUAU2gmR0Jqhm_xv-3MgK909egemVEA">
+<div class="absolute top-4 right-4">
+<button class="w-10 h-10 rounded-full bg-white/90 glass-effect flex items-center justify-center text-error shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary px-3 py-1 rounded-full text-white font-label-md text-caption flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Available Now
+                            </span>
+</div>
+</div>
+<div class="p-base flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Toyota Vios</h3>
+<p class="text-on-surface-variant font-body-md text-caption">Sedan • 2021 Model</p>
+</div>
+<div class="text-right">
+<span class="text-primary font-bold text-headline-md">RM 120</span>
+<p class="text-outline font-caption text-caption">per day</p>
+</div>
+</div>
+<!-- Spec Aligned Row -->
+<div class="grid grid-cols-3 gap-xs border-y border-outline-variant/20 py-sm mb-sm">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">event_seat</span>
+<span class="text-on-surface font-label-md text-caption">5 Seats</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant/20">
+<span class="material-symbols-outlined text-outline">settings</span>
+<span class="text-on-surface font-label-md text-caption">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-outline">local_gas_station</span>
+<span class="text-on-surface font-label-md text-caption">Petrol</span>
+</div>
+</div>
+<div class="space-y-2 mb-lg">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                                Premium insurance protection
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+                                Pick up at UMS Main Gate
+                            </div>
+</div>
+<button class="w-full bg-primary text-white h-12 rounded-xl font-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-md">
+                            Book This Ride
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comparison Statistics / Help Section (Asymmetric Bento Element) -->
+<div class="md:col-span-12 lg:col-span-8 bg-surface-container-low rounded-2xl p-lg border border-primary/5 shadow-sm relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Smart Student Tip</h4>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-2xl">
+                            The <strong>Proton X50</strong> is currently the best value for group trips to Kundasang due to its superior fuel efficiency and terrain handling. Students often prefer the <strong>Myvi</strong> for city errands around 1Borneo.
+                        </p>
+<div class="flex gap-4 mt-sm">
+<div class="flex items-center gap-1 text-primary font-label-md">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+                                Most popular this week
+                            </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-[20px]">security</span>
+                                Student verified
+                            </div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<button class="bg-surface text-primary border border-primary px-8 py-3 rounded-xl font-label-md hover:bg-primary hover:text-white transition-all shadow-sm">
+                            Clear All Saved
+                        </button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Side Comparison Summary -->
+<div class="md:col-span-12 lg:col-span-4 bg-primary text-white rounded-2xl p-lg shadow-xl flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md mb-base">Need a quick pick?</h4>
+<p class="opacity-80 font-body-md text-caption mb-lg">We've calculated the best choice based on your history.</p>
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-white/10 pb-2">
+<span class="font-body-md text-caption opacity-90">Cheapest Option</span>
+<span class="font-label-md text-label-md">RM 90/day</span>
+</div>
+<div class="flex items-center justify-between border-b border-white/10 pb-2">
+<span class="font-body-md text-caption opacity-90">Best Rating</span>
+<span class="font-label-md text-label-md">Proton X50</span>
+</div>
+<div class="flex items-center justify-between border-b border-white/10 pb-2">
+<span class="font-body-md text-caption opacity-90">Closest Pick-up</span>
+<span class="font-label-md text-label-md">UMS Library</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-white text-primary h-12 rounded-xl mt-lg font-label-md flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined">help_center</span>
+                    Chat with Support
+                </button>
+</div>
+</div>
+</main>
+<!-- Compare Drawer (Initially Hidden) -->
+<div class="fixed inset-0 z-[60] hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" id="compare-modal">
+<div class="bg-surface w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container">
+<h3 class="font-headline-md text-headline-md text-on-surface">Technical Comparison</h3>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" onclick="toggleModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="overflow-auto flex-grow">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low sticky top-0">
+<tr>
+<th class="p-6 font-label-md text-label-md border-b border-outline-variant">Feature</th>
+<th class="p-6 font-label-md text-label-md border-b border-outline-variant text-primary">Proton X50</th>
+<th class="p-6 font-label-md text-label-md border-b border-outline-variant text-primary">Perodua Myvi</th>
+<th class="p-6 font-label-md text-label-md border-b border-outline-variant text-primary">Toyota Vios</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="compare-row">
+<td class="p-6 font-bold">Daily Rate</td>
+<td class="p-6">RM 145</td>
+<td class="p-6">RM 90</td>
+<td class="p-6">RM 120</td>
+</tr>
+<tr class="compare-row">
+<td class="p-6 font-bold">Transmission</td>
+<td class="p-6">7-DCT Auto</td>
+<td class="p-6">4-Speed Auto</td>
+<td class="p-6">CVT Auto</td>
+</tr>
+<tr class="compare-row">
+<td class="p-6 font-bold">Engine Type</td>
+<td class="p-6">1.5L Turbo</td>
+<td class="p-6">1.3L VVT-i</td>
+<td class="p-6">1.5L Dual VVT-i</td>
+</tr>
+<tr class="compare-row">
+<td class="p-6 font-bold">Seating</td>
+<td class="p-6">5 Adults (Spacious)</td>
+<td class="p-6">5 Adults</td>
+<td class="p-6">5 Adults</td>
+</tr>
+<tr class="compare-row">
+<td class="p-6 font-bold">Fuel Efficiency</td>
+<td class="p-6">Excellent</td>
+<td class="p-6">Superior</td>
+<td class="p-6">Good</td>
+</tr>
+<tr class="compare-row">
+<td class="p-6 font-bold">Security Deposit</td>
+<td class="p-6">RM 200</td>
+<td class="p-6">RM 100</td>
+<td class="p-6">RM 150</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-lowest border-t border-outline-variant flex justify-end gap-4">
+<button class="px-6 py-2 rounded-xl font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="toggleModal()">Close View</button>
+<button class="px-8 py-2 bg-primary text-white rounded-xl font-label-md shadow-md hover:bg-primary-container transition-all">Print Comparison</button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation for Mobile -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined">home</span>
+            Home
+        </div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined">search</span>
+            Search
+        </div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            Saved
+        </div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined">event_available</span>
+            Bookings
+        </div>
+</nav>
+<footer class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl mt-lg border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center text-outline font-caption text-caption gap-sm">
+<p class="">© 2024 SahabatzRide UMS. Built for students, by students.</p>
+<div class="flex gap-lg">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Help Center</a>
+</div>
+</footer>
+<script>
+        function toggleModal() {
+            const modal = document.getElementById('compare-modal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        const viewCompareBtn = document.getElementById('view-compare');
+        const viewGridBtn = document.getElementById('view-grid');
+
+        viewCompareBtn.addEventListener('click', () => {
+            toggleModal();
+        });
+
+        // Interactive states for hover effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+
+
+</body></html>

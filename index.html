@@ -1,0 +1,375 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SahabatzRide - Premium Car Rental Labuan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#dfe0e0",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed-variant": "#454747",
+                    "background": "#f9f9ff",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary": "#7b2600",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "surface-container": "#e8edff",
+                    "primary-container": "#0052cc",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-background": "#041b3c",
+                    "surface-container-highest": "#d7e2ff",
+                    "inverse-surface": "#1d3052",
+                    "surface-dim": "#cadaff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-primary-fixed": "#001848",
+                    "secondary": "#5d5f5f",
+                    "surface-container-high": "#e0e8ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "primary": "#003d9b",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-variant": "#d7e2ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-secondary-container": "#616363",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-surface": "#041b3c",
+                    "surface": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#c4d2ff",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "outline": "#737685",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-tint": "#0c56d0",
+                    "surface-container-low": "#f1f3ff",
+                    "tertiary-container": "#a33500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "sm": "12px",
+                    "margin-desktop": "80px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "xl": "64px",
+                    "lg": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "caption": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f9f9ff; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f9f9ff 0%, #e8edff 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-[100]"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-4">
+    <span class="material-symbols-outlined text-primary text-2xl cursor-pointer">menu</span>
+    <h1 class="font-headline-lg text-headline-lg font-bold text-primary">SahabatzRide</h1>
+  </div>
+  <nav class="hidden md:flex gap-lg items-center">
+    <a class="text-primary font-semibold border-b-2 border-primary text-label-md transition-colors" href="#">Home</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Search</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Saved</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Bookings</a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-primary-container">
+      <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1wliOnkMsGxG-YBTGwgoHlTeVwM7qsyFGEiHxYv0o73HEDxdWDCThguxM-W3gnWNgHIbJVZ78ImF5MvGGGUcxkbjzkwNUswzDhLpwMlxWZNGHCuj-Xw2ICxcLsa4varN3pCkZdntJJJXnp9IGfXp4O-ahHWHUmfpl8GlvCZEKnOJcRQkV_cdD_EdHgP6ldFRvIYa16kgDkW_dhnDhcWbsM9QgLyWBtES4rwj074u9mdDhO7LhuOi0dJH4YggR5H4udgqvxFb5-uM">
+    </div>
+  </div>
+</div></header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="hero-gradient pt-xl pb-32 overflow-hidden transition-all duration-700 opacity-100 translate-y-0">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+<div class="z-10">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-base">Where to in Labuan?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-md">Experience the ultimate freedom of travel in Labuan with our premium fleet of vehicles, tailored for your comfort and style.</p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
+<span class="material-symbols-outlined text-success-container text-primary">verified</span>
+<span class="font-label-md text-label-md">Verified Fleet</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="font-label-md text-label-md">24/7 Support</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl"></div>
+<img alt="Luxury Car Labuan" class="relative z-10 w-full h-auto drop-shadow-2xl rounded-2xl" data-alt="A luxury white sedan car parked on a scenic coastal road in Labuan during the golden hour. The lighting is warm and cinematic, highlighting the vehicle's sleek curves and premium finish. The vast blue ocean and clear sky in the background evoke a sense of freedom and high-end travel. The image is crisp, professional, and follows a clean minimalist corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9y5sVZcyTp_q8z-LABxVuDQ16YTt0YxvlNlKEKlWBHS5wSr32pWOhgf5YrmkxUvtg9d2A64hq09kkWI7Gg58NmjEYMcoQeZEMCR6fA-LrzTM1X1BtfQWNevE14AZ2l2gvzpxM_rjy2-IEZtOtYIeEChb9UqaxTkiFoq9aOzYRXd-Rz9z9G0TpK1J2wJR0mvzp--HjvEUii7mZnvUV3CHn_Z8jb710L3UY2W2UxrSu87uD8eNOUWcf2J3s9AoDuIJ0KP4JJ4wPghQ">
+</div>
+</div>
+</section>
+<!-- Search Card (The Anchor) -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop -mt-16 relative z-50 transition-all duration-700 opacity-100 translate-y-0">
+<div class="bg-white rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] p-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter items-end">
+<!-- Location -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1">Pick-up Location</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary">location_on</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-low border border-outline-variant rounded-lg font-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all cursor-default" readonly="" type="text" value="Labuan, Malaysia">
+</div>
+</div>
+<!-- Pickup Date -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1">Pickup Date</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary">calendar_today</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-white border border-outline-variant rounded-lg font-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="date">
+</div>
+</div>
+<!-- Return Date -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1">Return Date</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary">calendar_today</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-white border border-outline-variant rounded-lg font-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="date">
+</div>
+</div>
+<!-- Search Button -->
+<div>
+<button class="w-full h-[48px] bg-primary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 duration-200 shadow-md">
+<span class="material-symbols-outlined">search</span>
+                            Search Available Cars
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Fleet Preview -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl transition-all duration-700 opacity-100 translate-y-0">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md">Featured Fleet</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline transition-colors">
+                    View all vehicles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+<!-- Hero Card -->
+<div class="md:col-span-7 bg-white rounded-xl shadow-sm overflow-hidden flex flex-col group cursor-pointer hover:shadow-lg transition-all border border-outline-variant/30">
+<div class="h-2/3 overflow-hidden relative">
+<img alt="Electric Premium Fleet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern electric vehicle charging at a sleek, high-tech station in a well-lit urban environment in Labuan. The scene is bright and airy with high-key lighting, emphasizing clean lines and sustainable luxury. The professional blue and white color scheme is integrated through subtle reflections and the clean architectural backdrop, maintaining the corporate minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBT6kdoRqAfP835sfnx-TJPfqGauANuyOHRx8JgW5aB3INSwQk8m9GY8kAPBRIoRe7PUXfl1kn5Qc3a5g8yYZvYV_uN1kevuUuPbEOmRenqv4k4wJhBTVub6FNwIA_h9kGGYdm5CRvbJcOLWLIM8J_lKmVm0kYq6243N33LcFxWJYz26Kp7aYQThSv4tgDh-_yQQ_0jZ96vdn04grfE9PsJZjEgUiQN9rH_qAIKny7AjGwtoYpRd7ue37RGebtkr1_GcEVD8-7Qqk">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-green-600 text-sm" style="font-variation-settings: 'FILL' 1">check_circle</span>
+<span class="text-caption font-caption text-on-surface">Available Now</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md">Tesla Model 3 Performance</h4>
+<p class="text-on-surface-variant font-body-md">Sustainable luxury for your island commute.</p>
+</div>
+<div class="flex justify-between items-center mt-base">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 text-on-surface-variant text-caption"><span class="material-symbols-outlined text-sm">ev_station</span> Electric</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-caption"><span class="material-symbols-outlined text-sm">airline_seat_recline_normal</span> 5 Seats</span>
+</div>
+<span class="text-primary font-bold text-headline-md">RM 450<span class="text-label-md font-normal text-on-surface-variant">/day</span></span>
+</div>
+</div>
+</div>
+<!-- Right Column Stack -->
+<div class="md:col-span-5 grid grid-rows-2 gap-gutter">
+<div class="bg-white rounded-xl shadow-sm overflow-hidden flex group cursor-pointer hover:shadow-lg transition-all border border-outline-variant/30">
+<div class="w-1/3 overflow-hidden">
+<img alt="SUV Fleet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern SUV parked in a bright, modern architectural driveway in Labuan. The vehicle is presented in a clean white finish, perfectly catching the soft morning light. The composition focuses on the car's utility and family-friendly design, utilizing a professional photography style with a shallow depth of field to make the subject pop against a minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANcj8qWqTZRqgt7pxdw14_911s7HKOXVkxmRBIw5oA4i49F0nUh_OxoC3pnWhejwbb_B9XIq6-TnDC5GomKNqGfiPybXkPIfolrY1zpcb_absD-Ga1EDil2F1m6wQhvbzLeFilx3hJIiDSPvhqPURzF8VsTIAAZpayT8cHdxT408cbGY3hm3kUjXrmVcBWrTl1nf-Llfp_4OANg3vsAVk2tx0IDF7C0N9iX9tDUgs6w82neTIYjWdY2agUv35u_AcE2dNptK-df_c">
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs">Family Choice</h4>
+<h5 class="font-headline-sm font-semibold text-headline-md leading-tight">Toyota Harrier</h5>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-on-surface-variant text-caption">Automatic • 5 Seats</span>
+<span class="text-primary font-bold">RM 320/day</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container rounded-xl shadow-sm p-md flex flex-col justify-between text-white relative overflow-hidden group cursor-pointer">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[120px]">directions_car</span>
+</div>
+<div class="z-10">
+<h4 class="font-headline-md text-headline-md mb-xs">Business Fleet</h4>
+<p class="font-body-md opacity-80">Premium sedans for corporate travel and events in Labuan.</p>
+</div>
+<div class="z-10 flex justify-between items-center">
+<span class="font-label-md text-label-md border-b border-white/40 pb-1">Browse Executive Collection</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface-container-low py-xl transition-all duration-700 opacity-100 translate-y-0">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-xl">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-base">Why Choose SahabatzRide?</h3>
+<p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto">Providing seamless transportation solutions with a focus on reliability and customer satisfaction.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-white p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-base">Full Protection</h4>
+<p class="text-on-surface-variant font-body-md">Comprehensive insurance coverage for all rentals, giving you peace of mind throughout your journey.</p>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-3xl">sell</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-base">No Hidden Fees</h4>
+<p class="text-on-surface-variant font-body-md">Transparent pricing with no surprise charges at the counter. What you see is exactly what you pay.</p>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-base">24/7 Roadside Assistance</h4>
+<p class="text-on-surface-variant font-body-md">Reliable support is always a phone call away, ensuring your travels in Labuan are never interrupted.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface py-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="col-span-1 md:col-span-2">
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary-fixed mb-base">SahabatzRide</h2>
+<p class="text-outline-variant font-body-md max-w-sm mb-lg">The leading premium car rental service in Labuan, dedicated to providing high-quality vehicles and exceptional service for every journey.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-label-md text-label-md uppercase tracking-widest mb-md opacity-60">Company</h5>
+<ul class="space-y-base font-body-md">
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">About Us</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Our Fleet</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Services</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md uppercase tracking-widest mb-md opacity-60">Support</h5>
+<ul class="space-y-base font-body-md">
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Help Center</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="hover:text-primary-fixed transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop mt-xl pt-lg border-t border-white/10 text-center text-outline-variant font-caption text-caption">
+            © 2024 SahabatzRide Rental Services Labuan. All rights reserved.
+        </div>
+</footer>
+<!-- Mobile Bottom Navigation (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl flex justify-around items-center px-4 py-2">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</div>
+</nav>
+<script>
+        // Smooth reveal animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+
+
+</body></html>
