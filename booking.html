@@ -1,6 +1,7 @@
 <!DOCTYPE html><html class="light" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SahabatzRide | Booking Confirmed</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -118,27 +119,21 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="bg-background text-on-surface min-h-screen font-body-md flex flex-col">
 <!-- TopAppBar -->
-<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-container-highest shadow-sm"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
-  <div class="flex items-center gap-4">
-    <span class="material-symbols-outlined text-primary text-headline-md cursor-pointer">menu</span>
-    <h1 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed-dim">SahabatzRide</h1>
-  </div>
-  <nav class="hidden md:flex gap-8 items-center">
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Home</a>
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Search</a>
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Saved</a>
-    <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-1 font-label-md text-label-md" href="#">Bookings</a>
-  </nav>
-  <div class="flex items-center gap-4">
-    <div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-primary/20 shadow-sm">
-      <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Uo_U-ntDtOezsn1MOuQ0ujyYUP6cDGFjUfrsyNUh5rfrxzE1AfrepRs2uvzQ0DgslkmdkkPUksqxCk1pfqYUIrOv_44FE0VfMuBm7bWqAJ8jz_7PdlDjLTX9CvUXRR4EymWxdcJu4Vm78H38ZDc44GnWk6ZXKort2Nc3mAXSXs9U0G6m1FDpwqzlO6bAhfk038aenki1D3dF2tPx5NLSk9qyFQZaQ0_ItJabni8pTN-WpAirBrpCZOtBI5q_1rwrujsSh_uJ1XA">
-    </div>
-  </div>
-</div></header>
-<main class="flex-grow flex items-center justify-center py-xl">
-<div class="container max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop">
+<header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center"><div class="flex items-center gap-4"><button class="text-primary active:scale-95 duration-200 md:hidden"><span class="material-symbols-outlined">menu</span></button><h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1></div><nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="car_listing.html">Search</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="saved.html">Saved</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="booking.html">Bookings</a>
+</nav><div class="flex items-center gap-4"><button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30"><img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHJS7Gqost7-EUq3Vp28sQAOMHHxauol_5A_GOluOxar3eeExkuJ9J-0Vxkm4qwfaHaKVkoYt3Zry_Ptvfi8WMgqez6gSuDnXyS957QCG_jh1bk-QdFH2oxp5C9q6FqU8t3UMXkUzuHo0gaHm3VX-FS8GFsGA90ymGYmn5UIGxc8XTzp5YAIZ9zrBC4ryp0H2y_-NGLOiq2v-fGcXZqoD7oAVQzD8DT7f-zbUGIGphOos--6g2pikchcTenSPmiMiOAIaphKhP5M" class="w-full h-full object-cover"></button></div></div></header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg flex-grow w-full">
+<div class="w-full max-w-5xl mx-auto">
+<nav class="flex items-center gap-2 mb-lg text-outline text-caption font-caption">
+<a class="hover:text-primary" href="index.html">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Booking Confirmation</span>
+</nav>
 <!-- Success Status Header -->
 <div class="text-center mb-lg">
 <div class="inline-flex items-center justify-center w-20 h-20 bg-primary-container text-on-primary-container rounded-full mb-md success-checkmark-animation shadow-lg">
@@ -240,14 +235,42 @@
 </div>
 </div>
 </main>
-<!-- Simple Footer -->
-<footer class="mt-auto bg-surface-container-highest/30 py-md border-t border-outline-variant/10">
-<div class="max-w-7xl mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-caption text-caption text-on-surface-variant">© 2024 SahabatzRide. Premium Car Rentals for UMS.</p>
-<div class="flex gap-8">
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Terms of Service</a>
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Cancellation Policy</a>
+<!-- Footer -->
+<footer class="bg-surface-container-highest mt-xl py-lg">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black text-primary mb-md block">SahabatzRide</span>
+<p class="text-body-md text-on-surface-variant">Student-friendly car rental service in Labuan with clear availability, saved cars, and trusted vehicle details.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Company</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-primary" href="#">About Us</a></li>
+<li class=""><a class="hover:text-primary" href="#">Careers</a></li>
+<li class=""><a class="hover:text-primary" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Services</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-primary" href="#">Car Subscription</a></li>
+<li class=""><a class="hover:text-primary" href="#">Corporate Rental</a></li>
+<li class=""><a class="hover:text-primary" href="#">Wedding Car</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Contact</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> +60 11-2345 6789</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> support@sahabatzride.com</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop mt-lg pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-caption text-outline">© 2024 SahabatzRide. All rights reserved.</p>
+<div class="flex gap-md">
+<a class="text-caption text-outline hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-caption text-outline hover:text-primary" href="#">Terms of Service</a>
 </div>
 </div>
 </footer>

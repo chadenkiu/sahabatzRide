@@ -1,466 +1,266 @@
-<!DOCTYPE html><html class="light" lang="en" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "error-container": "#ffdad6",
-                    "secondary-container": "#dfe0e0",
-                    "tertiary-fixed-dim": "#ffb59b",
-                    "inverse-on-surface": "#edf0ff",
-                    "on-error": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "surface-container-lowest": "#ffffff",
-                    "on-surface-variant": "#434654",
-                    "on-secondary-fixed-variant": "#454747",
-                    "background": "#f9f9ff",
-                    "surface-bright": "#f9f9ff",
-                    "tertiary": "#7b2600",
-                    "secondary-fixed-dim": "#c6c6c7",
-                    "surface-container": "#e8edff",
-                    "primary-container": "#0052cc",
-                    "secondary-fixed": "#e2e2e2",
-                    "on-background": "#041b3c",
-                    "surface-container-highest": "#d7e2ff",
-                    "inverse-surface": "#1d3052",
-                    "surface-dim": "#cadaff",
-                    "on-primary-fixed-variant": "#0040a2",
-                    "on-primary-fixed": "#001848",
-                    "secondary": "#5d5f5f",
-                    "surface-container-high": "#e0e8ff",
-                    "tertiary-fixed": "#ffdbcf",
-                    "primary": "#003d9b",
-                    "inverse-primary": "#b2c5ff",
-                    "surface-variant": "#d7e2ff",
-                    "primary-fixed": "#dae2ff",
-                    "on-secondary-container": "#616363",
-                    "on-tertiary-fixed": "#380d00",
-                    "on-surface": "#041b3c",
-                    "surface": "#f9f9ff",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#c4d2ff",
-                    "on-primary": "#ffffff",
-                    "error": "#ba1a1a",
-                    "outline": "#737685",
-                    "primary-fixed-dim": "#b2c5ff",
-                    "outline-variant": "#c3c6d6",
-                    "on-secondary-fixed": "#1a1c1c",
-                    "on-tertiary-fixed-variant": "#812800",
-                    "on-tertiary-container": "#ffc6b2",
-                    "surface-tint": "#0c56d0",
-                    "surface-container-low": "#f1f3ff",
-                    "tertiary-container": "#a33500"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "base": "8px",
-                    "sm": "12px",
-                    "margin-desktop": "80px",
-                    "md": "24px",
-                    "margin-mobile": "16px",
-                    "xs": "4px",
-                    "xl": "64px",
-                    "lg": "40px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "caption": ["Inter"],
-                    "display-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "label-md": ["Inter"],
-                    "body-md": ["Inter"]
-            },
-            "fontSize": {
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-            }
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SahabatzRide | Car Details</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: "#f9f9ff",
+            surface: "#ffffff",
+            primary: "#003d9b",
+            "primary-container": "#0052cc",
+            "surface-container-low": "#f1f3ff",
+            "surface-container-highest": "#d7e2ff",
+            "on-surface": "#041b3c",
+            "on-surface-variant": "#434654",
+            outline: "#737685",
+            "outline-variant": "#c3c6d6",
           },
-        },
+          fontFamily: {
+            inter: ["Inter", "sans-serif"],
+          }
+        }
       }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9f9ff;
-        }
-    </style>
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
 </head>
-<body class="bg-background text-on-surface">
-<!-- TopAppBar -->
-<header class="w-full top-0 sticky bg-surface dark:bg-surface-container-highest shadow-sm z-50"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
-  <div class="flex items-center gap-4">
-    <button class="text-primary active:scale-95 duration-200 md:hidden">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1>
+
+<body class="bg-background text-on-surface min-h-screen">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/40">
+  <div class="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
+    <h1 class="text-3xl font-black text-primary">SahabatzRide</h1>
+
+    <nav class="hidden md:flex gap-8 text-sm font-semibold">
+      <a href="index.html" class="text-on-surface-variant hover:text-primary">Home</a>
+      <a href="car_listing.html" class="text-primary border-b-2 border-primary pb-1">Search</a>
+      <a href="saved.html" class="text-on-surface-variant hover:text-primary">Saved</a>
+      <a href="booking.html" class="text-on-surface-variant hover:text-primary">Bookings</a>
+    </nav>
+
+    <img src="https://i.pravatar.cc/100?img=12" class="w-10 h-10 rounded-full border-2 border-primary/20" alt="Profile">
   </div>
-  <nav class="hidden md:flex gap-8">
-    <a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="#">Home</a>
-    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Search</a>
-    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Saved</a>
-    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Bookings</a>
-  </nav>
-  <div class="flex items-center gap-4">
-    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant shadow-sm active:scale-95 transition-transform">
-      <img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnZjnKOcH4zmmOXGJDuzjIAmOV3xzA3SHnt2KBCAoaW89GCTcsNFfkoY7U7ubJcSXl3y2UnXToALOfbRbhJmInaHz6vGBsbzIyFeV5XbZcKjSIP7Sy2yS0bkMUZdkMVDbcbwvpkelokGSj2-WIQzeshJLREIA_qPdh7LsYL_v56u0WM-OkVolp8J1q_c5q7xenMAaBufbBmCAcT8YbLcGG_FigNBh9TWQlPW5_QrJtKFbbYWI0Udb2i_2IhCdfzf7ITIQOy25y1B0" class="w-full h-full object-cover">
-    </button>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 md:px-20 py-10">
+
+  <div class="flex justify-between items-center mb-6">
+    <a href="car_listing.html" class="flex items-center gap-2 text-primary font-bold hover:underline">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to Results
+    </a>
+
+    <div class="flex gap-3">
+      <a href="saved.html" class="border border-outline-variant px-4 py-2 rounded-lg font-semibold text-on-surface-variant hover:text-primary hover:border-primary flex gap-2">
+        <span class="material-symbols-outlined">favorite</span>
+        Bookmark
+      </a>
+      <button class="border border-outline-variant px-4 py-2 rounded-lg font-semibold text-on-surface-variant hover:text-primary hover:border-primary flex gap-2">
+        <span class="material-symbols-outlined">share</span>
+        Share
+      </button>
+    </div>
   </div>
-</div></header>
-<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
-<!-- Navigation Actions -->
-<div class="flex justify-between items-center mb-md">
-<button class="flex items-center gap-2 text-primary font-label-md text-label-md hover:underline active:scale-95 transition-transform">
-<span class="material-symbols-outlined">arrow_back</span>
-                Back to Results
-            </button>
-<div class="flex gap-4">
-<button class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-                    Bookmark
-                </button>
-<button class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
-<span class="material-symbols-outlined">share</span>
-                    Share
-                </button>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Left Side: Visuals & Description -->
-<div class="lg:col-span-8 space-y-md">
-<!-- Hero Gallery -->
-<div class="space-y-sm">
-<div class="w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm">
-<img class="w-full h-full object-cover" data-alt="A premium silver luxury sedan parked on a clean, modern urban street during the golden hour. The vehicle features sleek aerodynamic lines and polished chrome details. The background is a blurred cityscape with soft bokeh lighting, emphasizing a professional, trustworthy, and high-end automotive rental brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKhUzTKwT41EZP-0mauyp2ei_iJ7Nv1DWQebc8v1PZ2xkwsWmVGrQ5hbF5Or3tWqUr63xM_dewzbIuQDGs1pX-xe27rNzr5iFm3e3rJs96YyYzqPdoQTSRWuL_9jALFtfw4t36bbCmNXcv8Y0b_pdb8v_pxGfalzzVkThfBp2fCsNA24YIv5e0S76FnHQkNcAYEtCivWBwEpDR9d_9M7MS7-IeupvfYOyTH1EIbO1qJ8Ax6HMHkk3WTFOqZL57L0QbeMsD6GSOEME">
-</div>
-<div class="grid grid-cols-4 gap-sm">
-<div class="aspect-square rounded-lg overflow-hidden border-2 border-primary">
-<img class="w-full h-full object-cover" data-alt="Detailed interior shot of a luxury car dashboard featuring high-quality leather stitching, a modern touchscreen infotainment system, and polished aluminum accents. The lighting is soft and diffused, creating a calm and premium atmosphere within the vehicle cabin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMtwTMbNidqAjVuB1tf7n1VebzrChFpyEQOB2cUCwBVCdHEzGLtHyJN55WqBPu-VbHy-3pbePBe_CNXVea9Q34-kU-cwyG4v92z_EIyQ3LQgU8McJr0yGFycphn59QtC4iSNzJddxCB0TVbSe4CBRbcdXy_RDACJPN-kjao9mDiWHZ7uaSxdMCvcECsZBV19Xk1NiyMmCFoREtBDlAjgF1-JfIwTsfZ3taJ99IGiixaFiSXQ1VM6cUrU_uLth-njz0Jp06mA0upws">
-</div>
-<div class="aspect-square rounded-lg overflow-hidden opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-<img class="w-full h-full object-cover" data-alt="Side profile view of a high-end luxury vehicle showing its elegant silhouette and designer alloy wheels. The car is set against a minimalist architectural background with neutral tones, conveying a sense of speed, stability, and corporate professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAbzBsVY9C7HfT5vlEop2v-3RvJg6X1aA_s7EpheE0eqwBcSzRiOGd46dVdC_7jT8rpTcFjngpyQ2G97He5e-R6yOQyynQ0nP3wgTcCFlN6ISge7x7wSiSHeFmDlng82eUZLPUlEHC_zyfqGbUZ_n1qfOx8NDPbTjXPkB3IE0uSsdMuEg1JKNtvIKfUOTSC2wrsifGVtyi8cFP3YhF8OtVrlu1mZHk9yNhPurEZ-d0LyIDHsBzan_JIsLjZKmXsjmc9_Y7KUQVnWU">
-</div>
-<div class="aspect-square rounded-lg overflow-hidden opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-<img class="w-full h-full object-cover" data-alt="Close up of the steering wheel and digital instrument cluster of a modern car. The digital displays are crisp and clear, showing navigation and performance data. The overall mood is technologically advanced and refined, typical of a top-tier rental fleet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCcGWOmff5kZmHjUEiSW0S7rFP6rTKtF7y4mFwx71pA-Gxn_n1cWqM3YHm3E6VebycJnM1BNGKQ9yqg42yu0YVrb_J7S6uOh0V7BBxTzg8RP82QNx2xFqEhNCrI02Q4Tn0a72Xu5YACUdDDRbZz9VmgV8W9xxgdxFSkU4GUGLmNB7ngoZoyScDjRQkHFn_AXrBCETQ2pC787Lkcu2Aqx3gOe-rwTVhEkGPzJgNfZUy0RFgr8AiSQ69GI7wywUefAy0nGN8DHVUdsw">
-</div>
-<div class="aspect-square rounded-lg overflow-hidden relative group cursor-pointer">
-<div class="absolute inset-0 bg-black/40 flex items-center justify-center text-white font-label-md text-label-md group-hover:bg-black/50 transition-colors">+12 Photos</div>
-<img class="w-full h-full object-cover" data-alt="Abstract close-up of a luxury car headlight with intricate LED patterns. The focus is sharp on the glass details, reflecting a modern and sophisticated design language. The color palette is cool with deep blues and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwwsOv_JNDrwiIPNV0_65TCBkhZjBslBCMPZRqLGI9gMpu4TUJoLEGIF6KHiAjDZuol0bjHsO_7yjiYlnSRKnEr-VU_hV8HUv_OJIkBsyC5QNv899vOZ9M9EnZHFLXghsTJV13XhpK8btDK722I1b8ylkH7wCdA4fo8tbA6hawA8QB-hOctQhLrD7NkQt1KNlevxopboxh6I2rLwCFa6kleD6GpA7eJRgyLlqe31IC6b58gcO5N8X5VGI3ISVan_g2eWhlmA0_Wg8">
-</div>
-</div>
-</div>
-<!-- Vehicle Info -->
-<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
-<div class="flex justify-between items-start mb-sm">
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface">2024 Porsche Panamera Executive</h2>
-<p class="text-on-surface-variant font-body-md text-body-md flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">location_on</span>
-                                Kuala Lumpur, Malaysia
-                            </p>
-</div>
-<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-caption font-caption flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-                            Available
-                        </span>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-sm py-md border-y border-outline-variant">
-<div class="flex flex-col gap-1">
-<span class="text-on-surface-variant text-caption font-caption">Transmission</span>
-<div class="flex items-center gap-2 text-on-surface font-label-md">
-<span class="material-symbols-outlined">settings_input_component</span>
-                                Automatic
-                            </div>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-on-surface-variant text-caption font-caption">Fuel Type</span>
-<div class="flex items-center gap-2 text-on-surface font-label-md">
-<span class="material-symbols-outlined">local_gas_station</span>
-                                Hybrid
-                            </div>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-on-surface-variant text-caption font-caption">Seats</span>
-<div class="flex items-center gap-2 text-on-surface font-label-md">
-<span class="material-symbols-outlined">airline_seat_recline_extra</span>
-                                5 Seats
-                            </div>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-on-surface-variant text-caption font-caption">Mileage</span>
-<div class="flex items-center gap-2 text-on-surface font-label-md">
-<span class="material-symbols-outlined">speed</span>
-                                Unlimited
-                            </div>
-</div>
-</div>
-<div class="pt-md">
-<h3 class="font-label-md text-label-md text-on-surface mb-2">Description</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            Experience the pinnacle of German engineering with the 2024 Porsche Panamera Executive. This extended wheelbase model offers unparalleled rear legroom and a suite of premium amenities perfect for business travel or luxury weekends. Featuring a sophisticated hybrid powertrain, it delivers both exhilarating performance and whisper-quiet efficiency in the city.
-                        </p>
-</div>
-</div>
-<!-- Bento Grid: Reports & Status -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Maintenance Status -->
-<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
-<div class="flex items-center gap-2 mb-sm">
-<span class="material-symbols-outlined text-primary">verified_user</span>
-<h3 class="font-label-md text-label-md text-on-surface">Maintenance Status</h3>
-</div>
-<div class="space-y-4">
-<div class="flex justify-between items-center">
-<span class="text-body-md text-on-surface-variant">Last Service</span>
-<span class="text-label-md text-on-surface">Oct 12, 2023</span>
-</div>
-<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
-<div class="bg-primary w-[85%] h-full rounded-full"></div>
-</div>
-<p class="text-caption text-on-surface-variant italic">Next routine maintenance due in 2,400 km.</p>
-</div>
-</div>
-<!-- Condition Report -->
-<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
-<div class="flex items-center gap-2 mb-sm">
-<span class="material-symbols-outlined text-primary">assignment_turned_in</span>
-<h3 class="font-label-md text-label-md text-on-surface">Vehicle Condition Report</h3>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">check</span> Exterior: Excellent
-                            </span>
-<span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">check</span> Interior: Pristine
-                            </span>
-<span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">check</span> Tires: 90% Thread
-                            </span>
-<span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-sm">info</span> Non-Smoking Vehicle
-                            </span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Side: Booking Card -->
-<aside class="lg:col-span-4">
-<div class="sticky top-[88px] bg-surface-container-lowest p-md rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-outline-variant">
-<div class="flex justify-between items-end mb-md">
-<div>
-<span class="text-on-surface-variant text-caption font-caption">Price from</span>
-<div class="flex items-baseline gap-1">
-<h4 class="font-headline-md text-headline-md text-primary">MYR 850</h4>
-<span class="text-on-surface-variant text-body-md">/ day</span>
-</div>
-</div>
-<div class="flex items-center gap-1 text-yellow-600">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-md">4.9</span>
-</div>
-</div>
-<div class="space-y-sm mb-md">
-<div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background cursor-pointer hover:border-primary transition-colors">
-<div class="flex flex-col">
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pickup</span>
-<span class="text-label-md">Sat, Oct 21 · 10:00 AM</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
-</div>
-<div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background cursor-pointer hover:border-primary transition-colors">
-<div class="flex flex-col">
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Dropoff</span>
-<span class="text-label-md">Mon, Oct 23 · 10:00 AM</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
-</div>
-</div>
-<div class="space-y-3 mb-md py-4 border-t border-outline-variant">
-<div class="flex justify-between text-on-surface-variant">
-<span class="">MYR 850 x 2 days</span>
-<span class="">MYR 1,700</span>
-</div>
-<div class="flex justify-between text-on-surface-variant">
-<span class="">Insurance (Premium Plan)</span>
-<span class="">MYR 120</span>
-</div>
-<div class="flex justify-between text-on-surface font-bold">
-<span class="">Total Price</span>
-<span class="">MYR 1,820</span>
-</div>
-</div>
-<button class="w-full h-[48px] bg-primary text-on-primary rounded-xl font-label-md text-label-md active:scale-95 transition-transform shadow-md hover:bg-primary-container">
-                        Reserve Now
-                    </button>
-<p class="text-center text-caption text-on-surface-variant mt-4">You won't be charged yet</p>
-<div class="mt-md pt-md border-t border-outline-variant flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Host" data-alt="A portrait of a friendly and professional host for a car rental service. The individual is dressed in business casual attire, set against a clean, light-filled background. The image evokes a sense of reliability, warmth, and excellent customer service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI1edfDfVKh_Vky-E3lzrNcGztCh4Qhn5IgNmEUK-VYotYP5XVWGE-B2r8_ZJk2COx5KyItVknymVxUs6wdhzAXB3QIj_SQh9-c0BgY35Riv55deCdfKa3N25g6kuP9AhTk3Am9BZECgwpiS7J-wfMR5j3hrhYUcP5bXCfj2SwCHStPq61f2hDng3SpmQEqoE5gGa_Wo_bAOmWg4MXE3Zh0IZbwGX-cl19K51L7ZBIrPiAcFRMr2yczwNPgliWwzE8HXDKwR8VmP4">
-</div>
-<div>
-<p class="text-on-surface font-label-md">Owned by Johan K.</p>
-<p class="text-on-surface-variant text-caption">Power Host · 500+ Trips</p>
-</div>
-</div>
-</div>
-</aside>
-</div>
-<!-- Customer Reviews Section -->
-<section class="mt-xl pt-xl border-t border-outline-variant">
-<div class="flex justify-between items-center mb-lg">
-<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
-                    4.9 · 128 Reviews
-                </h2>
-<button class="text-primary font-label-md hover:underline">Write a Review</button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-<!-- Review 1 -->
-<div class="space-y-sm bg-surface-container-lowest p-md rounded-xl border border-outline-variant">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
-<img alt="Reviewer" data-alt="A profile picture of a happy customer, depicted in a stylish vector illustration. The person has a warm and satisfied expression, set against a bright, modern light-mode background that complements the premium UI design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCExHFF4E6D04uYsCk4oA6nZKVi_xNZMFXvI7w4UbdUO2JQ9QAimoWLkhLfY51IKPA-JbXChntuk8y4XIgKhFiyWN6lYPDemZv5yWeL0ZCY-dY2eYlFJYjgEm4TU9IbFoTBFFDni9vIwdCbI3wJJ-JDsQwt6kAH9jwCGj0ioVaKTaogvHwz5U1KfJgIXzAQVMd5izkXpmv4EIwqzmccW7ju9iIEIGQtAzxOYrmAL4PayIVshsD-Le-ejegwE_bPoUamfXBHV9jmHVY">
-</div>
-<div>
-<p class="font-label-md text-on-surface">Sarah Mitchell</p>
-<p class="text-caption text-on-surface-variant">2 weeks ago</p>
-</div>
-</div>
-<div class="flex gap-0.5 text-yellow-600">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="text-body-md text-on-surface-variant">The Panamera was in perfect condition. Johan was extremely professional and the pickup process at KLIA was seamless. Highly recommend for business trips.</p>
-</div>
-<!-- Review 2 -->
-<div class="space-y-sm bg-surface-container-lowest p-md rounded-xl border border-outline-variant">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
-<img alt="Reviewer" data-alt="A portrait illustration of a professional male customer with a friendly smile. The visual style is minimalist and high-contrast, designed to fit within a modern corporate digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo_15nnXKj-9yAj1OX3P-TtuJNNPS5vdzIqB79qKs3bfl59GfK_LznJ5JQfguPxQgILS0ZxY9o7iEkvBiPdPMWEuaaiIt6WSbmSLcx6zup8Qtsk8M-ZpcwkF8kDvHqndZmqeWZPM_hPwQfk-ugWSDfWJn1rnv-2ZEHoKfVr3eeZWBydY4PaYvt5ISqoz2X6U59Jj-Uu3jw3MpSEnd5hwFYSybaDnfSvpAaoCJFyZYiw8CePsg4uzruFHeBnCbkkMWC6idyKrL7gYc">
-</div>
-<div>
-<p class="font-label-md text-on-surface">Marcus Tan</p>
-<p class="text-caption text-on-surface-variant">1 month ago</p>
-</div>
-</div>
-<div class="flex gap-0.5 text-yellow-600">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="text-body-md text-on-surface-variant">Exceptional experience. The car feels brand new. The condition report provided before the trip was very accurate and gave me a lot of confidence.</p>
-</div>
-</div>
-<div class="mt-lg text-center">
-<button class="px-6 py-2 border border-outline text-on-surface-variant font-label-md rounded-xl hover:bg-surface-container-low transition-colors">
-                    Load All 128 Reviews
-                </button>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container text-on-surface-variant py-xl mt-xl border-t border-outline-variant">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
-<div class="col-span-1 md:col-span-1">
-<h5 class="font-headline-md text-headline-md text-primary font-black mb-4 tracking-tight">SahabatzRide</h5>
-<p class="text-body-md">Premium car rental experiences for discerning travelers across Malaysia.</p>
-</div>
-<div>
-<h6 class="font-label-md text-label-md text-on-surface mb-4">Quick Links</h6>
-<ul class="space-y-2">
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">About Us</a></li>
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">Our Fleet</a></li>
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">Partner with Us</a></li>
-</ul>
-</div>
-<div>
-<h6 class="font-label-md text-label-md text-on-surface mb-4">Support</h6>
-<ul class="space-y-2">
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">Help Center</a></li>
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">Safety Guidelines</a></li>
-<li class=""><a class="text-body-md hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-</ul>
-</div>
-<div>
-<h6 class="font-label-md text-label-md text-on-surface mb-4">Newsletter</h6>
-<p class="text-caption mb-4">Get exclusive offers and travel inspiration.</p>
-<div class="flex gap-2">
-<input class="bg-surface-container-lowest border border-outline-variant px-3 py-2 rounded-lg text-body-md w-full focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Email address" type="email">
-<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md">Join</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop mt-lg pt-md border-t border-outline-variant text-center text-caption">
-            © 2024 SahabatzRide. All rights reserved.
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+    <!-- Left Content -->
+    <section class="lg:col-span-8 space-y-6">
+
+      <div class="rounded-xl overflow-hidden shadow-sm bg-white">
+        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1400&q=80"
+             class="w-full h-[420px] object-cover" alt="BMW 5 Series">
+      </div>
+
+      <div class="grid grid-cols-4 gap-4">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg border-2 border-primary">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg">
+        <div class="h-28 rounded-lg bg-black/60 text-white flex items-center justify-center font-bold">+12 Photos</div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <h2 class="text-3xl font-black">BMW 5 Series</h2>
+            <p class="text-on-surface-variant mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              Labuan, Malaysia
+            </p>
+          </div>
+
+          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+            Available
+          </span>
         </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 my-6 border-y border-outline-variant/40">
+          <div>
+            <p class="text-xs text-outline">Transmission</p>
+            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">settings</span>Auto</p>
+          </div>
+          <div>
+            <p class="text-xs text-outline">Fuel Type</p>
+            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">local_gas_station</span>Hybrid</p>
+          </div>
+          <div>
+            <p class="text-xs text-outline">Seats</p>
+            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">person</span>5 Seats</p>
+          </div>
+          <div>
+            <p class="text-xs text-outline">Mileage</p>
+            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">speed</span>Unlimited</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold mb-2">Description</h3>
+        <p class="text-on-surface-variant leading-relaxed">
+          A comfortable and reliable sedan suitable for UMS Labuan students who need transport for classes,
+          assignments, events, shopping, and short trips around Labuan. This vehicle is verified, clean, and ready for rental.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/40">
+          <h3 class="font-bold flex gap-2 mb-4">
+            <span class="material-symbols-outlined text-primary">verified_user</span>
+            Maintenance Status
+          </h3>
+          <div class="flex justify-between">
+            <span class="text-on-surface-variant">Last Service</span>
+            <b>May 28, 2026</b>
+          </div>
+          <div class="w-full h-2 bg-outline-variant rounded-full mt-4">
+            <div class="w-[85%] h-full bg-primary rounded-full"></div>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-3">Next maintenance due in 2,400 km.</p>
+        </div>
+
+        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/40">
+          <h3 class="font-bold flex gap-2 mb-4">
+            <span class="material-symbols-outlined text-primary">assignment_turned_in</span>
+            Vehicle Condition Report
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-white px-3 py-1 rounded-full text-sm">Exterior: Excellent</span>
+            <span class="bg-white px-3 py-1 rounded-full text-sm">Interior: Clean</span>
+            <span class="bg-white px-3 py-1 rounded-full text-sm">Aircond: Good</span>
+            <span class="bg-white px-3 py-1 rounded-full text-sm">Fuel: Full</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Booking Card -->
+    <aside class="lg:col-span-4">
+      <div class="sticky top-24 bg-white p-6 rounded-xl shadow-xl border border-outline-variant/40">
+        <div class="flex justify-between items-end mb-5">
+          <div>
+            <p class="text-sm text-on-surface-variant">Price from</p>
+            <p class="text-3xl font-black text-primary">RM350 <span class="text-base text-on-surface-variant font-normal">/ day</span></p>
+          </div>
+
+          <div class="flex items-center gap-1 text-yellow-500 font-bold">
+            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>
+            4.9
+          </div>
+        </div>
+
+        <div class="space-y-3 mb-5">
+          <div class="p-4 border border-outline-variant rounded-lg">
+            <p class="text-xs font-bold text-outline uppercase">Pickup</p>
+            <p class="font-semibold">Sat, Jun 15 · 10:00 AM</p>
+          </div>
+          <div class="p-4 border border-outline-variant rounded-lg">
+            <p class="text-xs font-bold text-outline uppercase">Return</p>
+            <p class="font-semibold">Mon, Jun 17 · 10:00 AM</p>
+          </div>
+        </div>
+
+        <div class="border-t border-outline-variant/40 pt-4 space-y-3">
+          <div class="flex justify-between text-on-surface-variant">
+            <span>RM350 x 2 days</span>
+            <span>RM700</span>
+          </div>
+          <div class="flex justify-between text-on-surface-variant">
+            <span>Insurance</span>
+            <span>RM80</span>
+          </div>
+          <div class="flex justify-between font-black text-lg">
+            <span>Total</span>
+            <span>RM780</span>
+          </div>
+        </div>
+
+        <a href="booking.html" class="mt-6 w-full h-12 bg-primary text-white rounded-xl font-bold flex items-center justify-center hover:bg-primary-container">
+          Reserve Now
+        </a>
+
+        <p class="text-center text-sm text-on-surface-variant mt-3">You won’t be charged yet</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Reviews -->
+  <section class="mt-16 pt-10 border-t border-outline-variant/40">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-black flex items-center gap-2">
+        <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings:'FILL' 1">star</span>
+        4.9 · 128 Reviews
+      </h2>
+      <button class="text-primary font-bold hover:underline">Write a Review</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-xl border border-outline-variant/30">
+        <p class="font-bold">Sandra Lim</p>
+        <p class="text-sm text-outline">2 weeks ago</p>
+        <p class="text-yellow-500 mt-2">★★★★★</p>
+        <p class="text-on-surface-variant mt-3">
+          The car was clean and the condition report helped me feel more confident before booking.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-outline-variant/30">
+        <p class="font-bold">Aiman Hakim</p>
+        <p class="text-sm text-outline">1 month ago</p>
+        <p class="text-yellow-500 mt-2">★★★★★</p>
+        <p class="text-on-surface-variant mt-3">
+          Easy to book and the availability status was clear. I did not need to open many listings.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-surface-container-highest mt-16 py-8 border-t border-outline-variant/30">
+  <div class="max-w-7xl mx-auto px-6 md:px-20 flex justify-between text-sm text-on-surface-variant">
+    <p>© 2024 SahabatzRide. Built for UMS Labuan students.</p>
+    <div class="flex gap-6">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Help Center</a>
+    </div>
+  </div>
 </footer>
-<!-- Mobile Bottom Navigation Shell (Suppress for Desktop as per platform rules) -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl">
-<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90 duration-150">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-label-md text-label-md">Home</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90 duration-150">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-<span class="font-label-md text-label-md">Search</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90 duration-150">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-<span class="font-label-md text-label-md">Saved</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90 duration-150">
-<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
-<span class="font-label-md text-label-md">Bookings</span>
-</div>
-</nav>
-<script>
-        // Simple micro-interaction for gallery image selection
-        const galleryImages = document.querySelectorAll('.grid.grid-cols-4 img');
-        const mainHeroImage = document.querySelector('.aspect-\\[16\\/9\\] img');
 
-        galleryImages.forEach(img => {
-            img.parentElement.addEventListener('click', () => {
-                // Update hero image src and alt
-                const newSrc = img.src;
-                const newAlt = img.getAttribute('data-alt');
-                mainHeroImage.src = newSrc;
-                mainHeroImage.setAttribute('data-alt', newAlt);
-                
-                // Update selection border
-                galleryImages.forEach(i => i.parentElement.classList.remove('border-2', 'border-primary'));
-                img.parentElement.classList.add('border-2', 'border-primary');
-            });
-        });
-    </script>
-
-
-</body></html>
+</body>
+</html>

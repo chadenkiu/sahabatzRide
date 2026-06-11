@@ -114,25 +114,14 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md min-h-screen">
+<body class="bg-background text-on-surface min-h-screen font-body-md">
 <!-- TopAppBar -->
-<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-container-highest shadow-sm"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
-  <div class="flex items-center gap-4">
-    <span class="material-symbols-outlined text-primary text-headline-md cursor-pointer">menu</span>
-    <h1 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed-dim">SahabatzRide</h1>
-  </div>
-  <nav class="hidden md:flex gap-8 items-center">
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Home</a>
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Search</a>
-    <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary py-1 font-label-md text-label-md" href="#">Saved</a>
-    <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Bookings</a>
-  </nav>
-  <div class="flex items-center gap-4">
-    <div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-primary/20 shadow-sm">
-      <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Uo_U-ntDtOezsn1MOuQ0ujyYUP6cDGFjUfrsyNUh5rfrxzE1AfrepRs2uvzQ0DgslkmdkkPUksqxCk1pfqYUIrOv_44FE0VfMuBm7bWqAJ8jz_7PdlDjLTX9CvUXRR4EymWxdcJu4Vm78H38ZDc44GnWk6ZXKort2Nc3mAXSXs9U0G6m1FDpwqzlO6bAhfk038aenki1D3dF2tPx5NLSk9qyFQZaQ0_ItJabni8pTN-WpAirBrpCZOtBI5q_1rwrujsSh_uJ1XA">
-    </div>
-  </div>
-</div></header>
+<header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center"><div class="flex items-center gap-4"><button class="text-primary active:scale-95 duration-200 md:hidden"><span class="material-symbols-outlined">menu</span></button><h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1></div><nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="car_listing.html">Search</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="saved.html">Saved</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="booking.html">Bookings</a>
+</nav><div class="flex items-center gap-4"><button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30"><img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHJS7Gqost7-EUq3Vp28sQAOMHHxauol_5A_GOluOxar3eeExkuJ9J-0Vxkm4qwfaHaKVkoYt3Zry_Ptvfi8WMgqez6gSuDnXyS957QCG_jh1bk-QdFH2oxp5C9q6FqU8t3UMXkUzuHo0gaHm3VX-FS8GFsGA90ymGYmn5UIGxc8XTzp5YAIZ9zrBC4ryp0H2y_-NGLOiq2v-fGcXZqoD7oAVQzD8DT7f-zbUGIGphOos--6g2pikchcTenSPmiMiOAIaphKhP5M" class="w-full h-full object-cover"></button></div></div></header>
 <main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
 <!-- Header Section -->
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-sm">
@@ -142,8 +131,8 @@
 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
 <span class="">Saved Vehicles</span>
 </nav>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Compare Your Favorites</h2>
-<p class="text-on-surface-variant font-body-md text-body-md">You have 3 vehicles saved for your next trip to Kota Kinabalu.</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Saved Cars for Comparison</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">You have 3 vehicles saved for your next trip around Labuan.</p>
 </div>
 <div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-inner">
 <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface shadow-sm text-primary font-label-md transition-all active:scale-95" id="view-grid">
@@ -477,15 +466,46 @@
             Bookings
         </div>
 </nav>
-<footer class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl mt-lg border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center text-outline font-caption text-caption gap-sm">
-<p class="">© 2024 SahabatzRide UMS. Built for students, by students.</p>
-<div class="flex gap-lg">
-<a class="hover:text-primary" href="#">Privacy Policy</a>
-<a class="hover:text-primary" href="#">Terms of Service</a>
-<a class="hover:text-primary" href="#">Help Center</a>
+<!-- Footer -->
+<footer class="bg-surface-container-highest mt-xl py-lg">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black text-primary mb-md block">SahabatzRide</span>
+<p class="text-body-md text-on-surface-variant">Student-friendly car rental service in Labuan with clear availability, saved cars, and trusted vehicle details.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Company</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-primary" href="#">About Us</a></li>
+<li class=""><a class="hover:text-primary" href="#">Careers</a></li>
+<li class=""><a class="hover:text-primary" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Services</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-primary" href="#">Car Subscription</a></li>
+<li class=""><a class="hover:text-primary" href="#">Corporate Rental</a></li>
+<li class=""><a class="hover:text-primary" href="#">Wedding Car</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Contact</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> +60 11-2345 6789</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> support@sahabatzride.com</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop mt-lg pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-caption text-outline">© 2024 SahabatzRide. All rights reserved.</p>
+<div class="flex gap-md">
+<a class="text-caption text-outline hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-caption text-outline hover:text-primary" href="#">Terms of Service</a>
+</div>
 </div>
 </footer>
-<script>
+<script><script>
         function toggleModal() {
             const modal = document.getElementById('compare-modal');
             modal.classList.toggle('hidden');
