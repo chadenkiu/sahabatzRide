@@ -1,291 +1,398 @@
-<!DOCTYPE html><html class="light" lang="en"><head>
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>SahabatzRide | Booking Confirmed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SahabatzRide | Saved Cars</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "error-container": "#ffdad6",
-                    "secondary-container": "#dfe0e0",
-                    "tertiary-fixed-dim": "#ffb59b",
-                    "inverse-on-surface": "#edf0ff",
-                    "on-error": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "surface-container-lowest": "#ffffff",
-                    "on-surface-variant": "#434654",
-                    "on-secondary-fixed-variant": "#454747",
-                    "background": "#f9f9ff",
-                    "surface-bright": "#f9f9ff",
-                    "tertiary": "#7b2600",
-                    "secondary-fixed-dim": "#c6c6c7",
-                    "surface-container": "#e8edff",
-                    "primary-container": "#0052cc",
-                    "secondary-fixed": "#e2e2e2",
-                    "on-background": "#041b3c",
-                    "surface-container-highest": "#d7e2ff",
-                    "inverse-surface": "#1d3052",
-                    "surface-dim": "#cadaff",
-                    "on-primary-fixed-variant": "#0040a2",
-                    "on-primary-fixed": "#001848",
-                    "secondary": "#5d5f5f",
-                    "surface-container-high": "#e0e8ff",
-                    "tertiary-fixed": "#ffdbcf",
-                    "primary": "#003d9b",
-                    "inverse-primary": "#b2c5ff",
-                    "surface-variant": "#d7e2ff",
-                    "primary-fixed": "#dae2ff",
-                    "on-secondary-container": "#616363",
-                    "on-tertiary-fixed": "#380d00",
-                    "on-surface": "#041b3c",
-                    "surface": "#f9f9ff",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#c4d2ff",
-                    "on-primary": "#ffffff",
-                    "error": "#ba1a1a",
-                    "outline": "#737685",
-                    "primary-fixed-dim": "#b2c5ff",
-                    "outline-variant": "#c3c6d6",
-                    "on-secondary-fixed": "#1a1c1c",
-                    "on-tertiary-fixed-variant": "#812800",
-                    "on-tertiary-container": "#ffc6b2",
-                    "surface-tint": "#0c56d0",
-                    "surface-container-low": "#f1f3ff",
-                    "tertiary-container": "#a33500"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "base": "8px",
-                    "sm": "12px",
-                    "margin-desktop": "80px",
-                    "md": "24px",
-                    "margin-mobile": "16px",
-                    "xs": "4px",
-                    "xl": "64px",
-                    "lg": "40px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "caption": ["Inter"],
-                    "display-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "label-md": ["Inter"],
-                    "body-md": ["Inter"]
-            },
-            "fontSize": {
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            background-color: #f9f9ff;
-            color: #041b3c;
-            font-family: 'Inter', sans-serif;
-        }
-        .success-checkmark-animation {
-            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-        @keyframes scaleIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-    </style>
-</head>
-<body class="bg-background text-on-surface min-h-screen font-body-md flex flex-col">
-<!-- TopAppBar -->
-<header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center"><div class="flex items-center gap-4"><button class="text-primary active:scale-95 duration-200 md:hidden"><span class="material-symbols-outlined">menu</span></button><h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1></div><nav class="hidden md:flex gap-8">
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="index.html">Home</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="car_listing.html">Search</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="saved.html">Saved</a>
-<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="booking.html">Bookings</a>
-</nav><div class="flex items-center gap-4"><button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30"><img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHJS7Gqost7-EUq3Vp28sQAOMHHxauol_5A_GOluOxar3eeExkuJ9J-0Vxkm4qwfaHaKVkoYt3Zry_Ptvfi8WMgqez6gSuDnXyS957QCG_jh1bk-QdFH2oxp5C9q6FqU8t3UMXkUzuHo0gaHm3VX-FS8GFsGA90ymGYmn5UIGxc8XTzp5YAIZ9zrBC4ryp0H2y_-NGLOiq2v-fGcXZqoD7oAVQzD8DT7f-zbUGIGphOos--6g2pikchcTenSPmiMiOAIaphKhP5M" class="w-full h-full object-cover"></button></div></div></header>
-<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg flex-grow w-full">
-<div class="w-full max-w-5xl mx-auto">
-<nav class="flex items-center gap-2 mb-lg text-outline text-caption font-caption">
-<a class="hover:text-primary" href="index.html">Home</a>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span>Booking Confirmation</span>
-</nav>
-<!-- Success Status Header -->
-<div class="text-center mb-lg">
-<div class="inline-flex items-center justify-center w-20 h-20 bg-primary-container text-on-primary-container rounded-full mb-md success-checkmark-animation shadow-lg">
-<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Booking Confirmed!</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Your ride is ready for pick-up. We've sent the details to your email.</p>
-</div>
-<!-- Main Confirmation Card (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Vehicle & Status (Primary) -->
-<div class="md:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden border border-outline-variant/30 transition-all hover:shadow-lg">
-<div class="relative h-64 w-full">
-<img class="w-full h-full object-cover" data-alt="A high-performance luxury sports car parked in a modern, brightly lit architectural setting. The car's metallic finish reflects the professional blue accents of the surrounding environment. The composition is clean and premium, with sharp lines and high contrast, capturing the essence of a premium car rental service in light-mode aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMclSXguA0NKX-rn7id65WOHzWedVa88JBS_3PBRfu3CWyWaaXkMS3TmbAS8BB0l4LuJFaIojpMI3vZi2WPGWyTYwE4ON4hgrLHgF1mYVvLzbp_lYedYii9NSIEvX9F9aRaZnqgY9VotE8u5dGQaUc3us6VrFtCSb9YD8hEDQy2OeCOxu-PRoq6Thn32Yieq97z6T1WC80QCV6356SrwzPnUVu7oUN_RtAo4adJfa6qe2V3_tGxyHv1fS6SCnVC2QOINi7XKtwlFY">
-<div class="absolute top-4 left-4">
-<span class="bg-primary text-on-primary px-4 py-1 rounded-full font-label-md text-label-md shadow-md">
-                                Confirmed #SR-88294
-                            </span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-md">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Porsche 911 Carrera S</h3>
-<div class="flex gap-4 mt-2">
-<span class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
-<span class="material-symbols-outlined text-[18px]">settings</span> Automatic
-                                    </span>
-<span class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
-<span class="material-symbols-outlined text-[18px]">person</span> 2 Seats
-                                    </span>
-<span class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
-<span class="material-symbols-outlined text-[18px]">local_gas_station</span> Petrol
-                                    </span>
-</div>
-</div>
-<div class="text-right">
-<p class="text-on-surface-variant font-caption text-caption">Total Paid</p>
-<p class="font-headline-md text-headline-md text-primary">RM 1,250.00</p>
-</div>
-</div>
-<div class="h-px bg-outline-variant/30 w-full my-md"></div>
-<div class="grid grid-cols-2 gap-lg">
-<div>
-<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-2">Pick-up</h4>
-<p class="font-body-md text-body-md font-bold text-on-surface">Monday, Oct 14, 2024</p>
-<p class="font-body-md text-body-md text-on-surface-variant">09:00 AM • UMS Main Lobby</p>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-2">Drop-off</h4>
-<p class="font-body-md text-body-md font-bold text-on-surface">Wednesday, Oct 16, 2024</p>
-<p class="font-body-md text-body-md text-on-surface-variant">05:00 PM • UMS Main Lobby</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Booking Summary Side Card -->
-<div class="md:col-span-4 flex flex-col gap-gutter">
-<!-- Price Breakdown -->
-<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30 shadow-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant mb-md">Payment Details</h3>
-<div class="space-y-sm">
-<div class="flex justify-between font-body-md text-body-md">
-<span class="text-on-surface-variant">Rental (2 days)</span>
-<span class="text-on-surface font-semibold">RM 1,100.00</span>
-</div>
-<div class="flex justify-between font-body-md text-body-md">
-<span class="text-on-surface-variant">Insurance (Premium)</span>
-<span class="text-on-surface font-semibold">RM 120.00</span>
-</div>
-<div class="flex justify-between font-body-md text-body-md">
-<span class="text-on-surface-variant">Service Tax (6%)</span>
-<span class="text-on-surface font-semibold">RM 30.00</span>
-</div>
-<div class="h-px bg-outline-variant/30 w-full my-2"></div>
-<div class="flex justify-between items-center">
-<span class="font-label-md text-label-md text-on-surface">Total Amount</span>
-<span class="font-headline-md text-headline-md text-primary">RM 1,250.00</span>
-</div>
-</div>
-</div>
-<!-- Actions -->
-<div class="flex flex-col gap-sm">
-<button class="w-full h-[48px] bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-md" onclick="window.print()">
-<span class="material-symbols-outlined">print</span> Print Receipt
-                        </button>
-<button class="w-full h-[48px] bg-white border border-primary text-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-container-low transition-all active:scale-95 shadow-sm">
-<span class="material-symbols-outlined">home</span> Return to Home
-                        </button>
-</div>
-<!-- Help Center -->
-<div class="bg-secondary-container/50 rounded-xl p-md text-center border border-secondary-container">
-<p class="font-caption text-caption text-on-secondary-container mb-2">Need help with your booking?</p>
-<a class="font-label-md text-label-md text-primary flex items-center justify-center gap-1" href="#">
-<span class="material-symbols-outlined text-[18px]">help</span> Contact Support
-                        </a>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-highest mt-xl py-lg">
-<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
-<div class="col-span-1 md:col-span-1">
-<span class="font-headline-lg text-headline-lg font-black text-primary mb-md block">SahabatzRide</span>
-<p class="text-body-md text-on-surface-variant">Student-friendly car rental service in Labuan with clear availability, saved cars, and trusted vehicle details.</p>
-</div>
-<div>
-<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Company</h4>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class=""><a class="hover:text-primary" href="#">About Us</a></li>
-<li class=""><a class="hover:text-primary" href="#">Careers</a></li>
-<li class=""><a class="hover:text-primary" href="#">Blog</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Services</h4>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class=""><a class="hover:text-primary" href="#">Car Subscription</a></li>
-<li class=""><a class="hover:text-primary" href="#">Corporate Rental</a></li>
-<li class=""><a class="hover:text-primary" href="#">Wedding Car</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Contact</h4>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> +60 11-2345 6789</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> support@sahabatzride.com</li>
-</ul>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-margin-desktop mt-lg pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md">
-<p class="text-caption text-outline">© 2024 SahabatzRide. All rights reserved.</p>
-<div class="flex gap-md">
-<a class="text-caption text-outline hover:text-primary" href="#">Privacy Policy</a>
-<a class="text-caption text-outline hover:text-primary" href="#">Terms of Service</a>
-</div>
-</div>
-</footer>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <script>
-        // Micro-interaction for the print button
-        document.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                // Subtle lift already handled by Tailwind transition-all
-            });
-        });
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "secondary-container": "#dfe0e0",
+        "surface-container-lowest": "#ffffff",
+        "on-surface-variant": "#434654",
+        "background": "#f9f9ff",
+        "surface-container": "#e8edff",
+        "primary-container": "#0052cc",
+        "surface-container-highest": "#d7e2ff",
+        "surface-container-high": "#e0e8ff",
+        "primary": "#003d9b",
+        "on-surface": "#041b3c",
+        "surface": "#f9f9ff",
+        "on-primary": "#ffffff",
+        "error": "#ba1a1a",
+        "outline": "#737685",
+        "outline-variant": "#c3c6d6",
+        "surface-container-low": "#f1f3ff",
+        "tertiary-container": "#a33500"
+      },
+      borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+      spacing: { base: "8px", sm: "12px", "margin-desktop": "80px", md: "24px", "margin-mobile": "16px", xs: "4px", xl: "64px", lg: "40px", gutter: "24px" },
+      fontFamily: { caption: ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"] },
+      fontSize: {
+        caption: ["12px", {lineHeight:"16px", fontWeight:"500"}],
+        "display-lg": ["48px", {lineHeight:"56px", letterSpacing:"-0.02em", fontWeight:"700"}],
+        "headline-lg": ["32px", {lineHeight:"40px", letterSpacing:"-0.01em", fontWeight:"700"}],
+        "headline-md": ["24px", {lineHeight:"32px", fontWeight:"600"}],
+        "body-lg": ["18px", {lineHeight:"28px", fontWeight:"400"}],
+        "label-md": ["14px", {lineHeight:"20px", fontWeight:"600"}],
+        "body-md": ["16px", {lineHeight:"24px", fontWeight:"400"}]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: Inter, sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  .filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .compare-row:nth-child(even) { background-color: rgba(0,61,155,0.03); }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen font-body-md">
+<header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <button class="text-primary active:scale-95 duration-200 md:hidden"><span class="material-symbols-outlined">menu</span></button>
+      <h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="index.html">Home</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="car_listing.html">Search</a>
+      <a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="saved.html">Saved</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="booking.html">Bookings</a>
+    </nav>
+    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30">
+      <img alt="User Profile" src="https://i.pravatar.cc/100?img=12" class="w-full h-full object-cover">
+    </button>
+  </div>
+</header>
 
-        // Simulating some dynamic behavior for "Active State Logic"
-        // This is a confirmation page, so technically no nav item is "Active" in the traditional sense,
-        // but since we arrived from booking, we keep "Home" as the context.
-    </script>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-sm">
+    <div>
+      <nav class="flex items-center gap-2 mb-2 text-outline text-caption font-caption">
+        <a class="hover:text-primary" href="index.html">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span>Saved Vehicles</span>
+      </nav>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Saved Cars for Comparison</h2>
+      <p id="savedSubtitle" class="text-on-surface-variant font-body-md text-body-md">Loading saved cars...</p>
+    </div>
+    <div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-inner">
+      <button id="gridBtn" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface shadow-sm text-primary font-label-md transition-all active:scale-95">
+        <span class="material-symbols-outlined filled">grid_view</span> Grid View
+      </button>
+      <button id="compareBtn" class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-all active:scale-95">
+        <span class="material-symbols-outlined">compare_arrows</span> Table Compare
+      </button>
+    </div>
+  </div>
 
+  <div id="emptyState" class="hidden bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-xl text-center">
+    <div class="w-20 h-20 mx-auto rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-md">
+      <span class="material-symbols-outlined text-[44px]">favorite</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md mb-xs">No saved cars yet</h3>
+    <p class="text-on-surface-variant mb-md">Save cars from the listing page so you can compare them here.</p>
+    <a href="car_listing.html" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md hover:bg-primary-container transition-colors">
+      Browse Available Cars <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
 
-</body></html>
+  <section id="gridView" class="grid grid-cols-1 md:grid-cols-12 gap-gutter"></section>
+
+  <section id="compareView" class="hidden bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden">
+    <div class="p-md border-b border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-sm">
+      <div>
+        <h3 class="font-headline-md text-headline-md">Dynamic Car Comparison</h3>
+        <p class="text-on-surface-variant text-body-md">This table compares only cars that user has saved.</p>
+      </div>
+      <button onclick="window.print()" class="bg-primary text-on-primary px-5 py-3 rounded-lg font-label-md hover:bg-primary-container transition-colors flex items-center gap-2 w-fit">
+        <span class="material-symbols-outlined">print</span> Print Compare
+      </button>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[850px] text-left border-collapse" id="compareTable"></table>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-surface-container-highest mt-xl py-lg">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg">
+    <div>
+      <span class="font-headline-lg text-headline-lg font-black text-primary mb-md block">SahabatzRide</span>
+      <p class="text-body-md text-on-surface-variant">Car rental service in UMSKAL. Experience the journey with comfort and style.</p>
+    </div>
+    <div><h4 class="font-label-md text-label-md font-bold mb-md">Company</h4><ul class="space-y-sm text-body-md text-on-surface-variant"><li>About Us</li><li>Careers</li><li>Blog</li></ul></div>
+    <div><h4 class="font-label-md text-label-md font-bold mb-md">Services</h4><ul class="space-y-sm text-body-md text-on-surface-variant"><li>Car Rental</li><li>Student Rental</li><li>Weekly Rental</li></ul></div>
+    <div><h4 class="font-label-md text-label-md font-bold mb-md">Contact</h4><ul class="space-y-sm text-body-md text-on-surface-variant"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> +60 3-1234 5678</li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> hello@sahabatzride.com</li></ul></div>
+  </div>
+</footer>
+
+<script>
+const fallbackCars = [
+  {
+    id: 1,
+    name: "BMW 5 Series",
+    category: "Sedan",
+    price: 350,
+    rating: 4.9,
+    reviews: 128,
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1JrYmnAOBo73W42VTGhIm3VA-Z55VfdGwz5s6rGUx3Z8RJKJIDM-axl_dMlsPh64tqXIKTzTCdnGCHY5CWZlUq80tlzBLz9ZQf5kAsmcsHKTU0hACrUhvcZZ_Tb5tlpKL6T-gDsrn_1DPSCSRb6Pj5-oJ27JyEyuiaHTtixcDoji_MgIGHM3v0Pv_y6o8Or19jpOeioE_VOpTZD4dWZthotZ5K4erLVLFN0gMcKFm2eDlpM0rG7sLrldCpV8nxS7f5OYiv5q2jag",
+    transmission: "Auto",
+    seats: "5 Seats",
+    fuel: "Hybrid",
+    insurance: "Premium insurance included",
+    pickup: "UMSKAL Drop & Pick Up Point",
+    condition: "Excellent",
+    maintenance: "May 28, 2026"
+  },
+  {
+    id: 2,
+    name: "Toyota Harrier",
+    category: "SUV",
+    price: 280,
+    rating: 4.7,
+    reviews: 85,
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBrLldxAHyXk6brHfZkZ2YY-bnGKp7BvcasnysgjhN-wGcGWrrHCMbq08CHepX4f-4u4zSTZQsmHJkTa4YxJrq4Ue6R6mzn2aWCcHD7QdeUJIR9T2tVB-0dX19LMRbIwarlJSo29yDHqXXrxPVRxdcZtogNrZUEQmpyaMojjRBx7E4028TxmS-Zhd2UghYpFNVSqozqt37bRmbrfJA6Ejc_BjPapICcXrw2hutW7nDM0mnR1YxmYP5voikmh029KHqgLFiLzwFp0as",
+    transmission: "Auto",
+    seats: "5 Seats",
+    fuel: "Petrol",
+    insurance: "Full insurance included",
+    pickup: "UMSKAL Main Gate",
+    condition: "Very Good",
+    maintenance: "June 2, 2026"
+  },
+  {
+    id: 3,
+    name: "Perodua Myvi",
+    category: "Compact",
+    price: 90,
+    rating: 4.5,
+    reviews: 67,
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOxrKYpznmCwSIF4hb4uFp9Qw2pdS77jLIBW2U9eDvFwb2pnWvRVkHHIUTSzOKB-befOlQZJC6sOtkr1c5tA7vA8eQRIGhmoTCBrcvz_eOg_-GVjAwxj2FOcMvetjsUg41W1b6p3BxQIEWIPvrX-ZYDw5YK3U42ugnJCwM3H5P7zzGjnszpDfuzzxXMumcD-cJtK1ummZ4hlm13IZOI2YQ0LoSMf_Fq-35XMTMkd7wYpogI3wRyTDTNIPbK9wbogOGIdPUrjAMrTw",
+    transmission: "Auto",
+    seats: "5 Seats",
+    fuel: "Petrol",
+    insurance: "Basic insurance included",
+    pickup: "UMSKAL Library",
+    condition: "Good",
+    maintenance: "May 20, 2026"
+  }
+];
+
+function getSavedCars() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("savedCars")) || [];
+    return saved.length ? saved : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveSelectedCar(car) {
+  localStorage.setItem("selectedCar", JSON.stringify(car));
+  window.location.href = "car_details.html";
+}
+
+function bookCar(car) {
+  localStorage.setItem("bookingCar", JSON.stringify(car));
+  window.location.href = "booking.html";
+}
+
+function removeSavedCar(id) {
+  const saved = getSavedCars().filter(car => String(car.id) !== String(id));
+  localStorage.setItem("savedCars", JSON.stringify(saved));
+  renderSavedPage();
+}
+
+function clearAllSaved() {
+  if (confirm("Remove all saved cars?")) {
+    localStorage.removeItem("savedCars");
+    renderSavedPage();
+  }
+}
+
+function getBestTip(cars) {
+  if (!cars.length) return "Save a car first to get a student rental tip.";
+  const cheapest = [...cars].sort((a,b) => Number(a.price) - Number(b.price))[0];
+  const bestRated = [...cars].sort((a,b) => Number(b.rating) - Number(a.rating))[0];
+  if (cheapest.id === bestRated.id) {
+    return `${cheapest.name} is the best overall choice because it has the lowest price and highest rating among your saved cars.`;
+  }
+  return `${cheapest.name} is the cheapest option at RM ${cheapest.price}/day, while ${bestRated.name} has the best rating at ${bestRated.rating}.`;
+}
+
+function renderGrid(cars) {
+  const grid = document.getElementById("gridView");
+  grid.innerHTML = "";
+
+  cars.forEach(car => {
+    const card = document.createElement("div");
+    card.className = "md:col-span-4 group";
+    card.innerHTML = `
+      <div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col">
+        <div class="relative h-56 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="${car.name}" src="${car.image}">
+          <button onclick="removeSavedCar('${car.id}')" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-error shadow-md active:scale-95" title="Remove from saved">
+            <span class="material-symbols-outlined filled">favorite</span>
+          </button>
+          <span class="absolute bottom-4 left-4 bg-primary px-3 py-1 rounded-full text-white font-label-md text-caption flex items-center gap-1 shadow-lg">
+            <span class="material-symbols-outlined text-[14px] filled">check_circle</span> Available Now
+          </span>
+        </div>
+        <div class="p-base flex-grow flex flex-col">
+          <div class="flex justify-between items-start mb-4 gap-3">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-on-surface">${car.name}</h3>
+              <p class="text-on-surface-variant font-body-md text-caption">${car.category} • ${car.transmission || 'Auto'}</p>
+              <div class="flex items-center gap-1 mt-xs">
+                <span class="material-symbols-outlined text-[18px] text-tertiary-container filled">star</span>
+                <span class="font-bold">${car.rating}</span>
+                <span class="text-caption text-outline">(${car.reviews || 0} reviews)</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-primary font-bold text-headline-md">RM ${car.price}</span>
+              <p class="text-outline font-caption text-caption">per day</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-xs border-y border-outline-variant/20 py-sm mb-sm">
+            <div class="flex flex-col items-center gap-1"><span class="material-symbols-outlined text-outline">event_seat</span><span class="text-caption font-bold">${car.seats || '5 Seats'}</span></div>
+            <div class="flex flex-col items-center gap-1 border-x border-outline-variant/20"><span class="material-symbols-outlined text-outline">settings</span><span class="text-caption font-bold">${car.transmission || 'Auto'}</span></div>
+            <div class="flex flex-col items-center gap-1"><span class="material-symbols-outlined text-outline">local_gas_station</span><span class="text-caption font-bold">${car.fuel || 'Petrol'}</span></div>
+          </div>
+          <div class="space-y-2 mb-lg">
+            <div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption"><span class="material-symbols-outlined text-primary text-[18px]">verified</span>${car.insurance || 'Insurance included'}</div>
+            <div class="flex items-center gap-2 text-on-surface-variant font-body-md text-caption"><span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span>Condition: ${car.condition || 'Good'}</div>
+          </div>
+          <div class="mt-auto grid grid-cols-1 gap-sm">
+            <button onclick='saveSelectedCar(${JSON.stringify(car).replace(/'/g,"&#39;")})' class="w-full bg-white border border-primary text-primary h-12 rounded-xl font-label-md flex items-center justify-center gap-2 hover:bg-surface-container-low transition-all active:scale-95 shadow-sm">
+              View Details <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+            <button onclick='bookCar(${JSON.stringify(car).replace(/'/g,"&#39;")})' class="w-full bg-primary text-white h-12 rounded-xl font-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-md">
+              Book This Ride <span class="material-symbols-outlined">event_available</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  const tipCard = document.createElement("div");
+  tipCard.className = "md:col-span-12 lg:col-span-8 bg-surface-container-low rounded-2xl p-lg border border-primary/5 shadow-sm relative overflow-hidden";
+  tipCard.innerHTML = `
+    <div class="relative z-10 flex flex-col md:flex-row gap-lg items-center justify-between">
+      <div>
+        <h4 class="font-headline-md text-headline-md text-primary mb-2">Smart Student Tip</h4>
+        <p class="text-on-surface-variant font-body-md text-body-md max-w-2xl">${getBestTip(cars)}</p>
+        <div class="flex flex-wrap gap-4 mt-sm">
+          <div class="flex items-center gap-1 text-primary font-label-md"><span class="material-symbols-outlined text-[20px]">trending_up</span> Based on saved cars</div>
+          <div class="flex items-center gap-1 text-on-surface-variant font-label-md"><span class="material-symbols-outlined text-[20px]">school</span> Student-friendly choice</div>
+        </div>
+      </div>
+      <button onclick="clearAllSaved()" class="bg-surface text-primary border border-primary px-8 py-3 rounded-xl font-label-md hover:bg-primary hover:text-white transition-all shadow-sm">Clear All Saved</button>
+    </div>
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+  `;
+  grid.appendChild(tipCard);
+
+  const summary = document.createElement("div");
+  summary.className = "md:col-span-12 lg:col-span-4 bg-primary text-white rounded-2xl p-lg shadow-xl flex flex-col justify-between";
+  const cheapest = [...cars].sort((a,b)=>Number(a.price)-Number(b.price))[0];
+  const best = [...cars].sort((a,b)=>Number(b.rating)-Number(a.rating))[0];
+  summary.innerHTML = `
+    <div>
+      <h4 class="font-headline-md text-headline-md mb-base">Quick Summary</h4>
+      <p class="opacity-80 font-body-md text-caption mb-lg">Calculated automatically from your saved cars.</p>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-2"><span class="text-caption opacity-90">Saved Cars</span><span class="font-label-md">${cars.length}</span></div>
+        <div class="flex items-center justify-between border-b border-white/10 pb-2"><span class="text-caption opacity-90">Cheapest Option</span><span class="font-label-md">${cheapest.name}</span></div>
+        <div class="flex items-center justify-between border-b border-white/10 pb-2"><span class="text-caption opacity-90">Best Rating</span><span class="font-label-md">${best.name}</span></div>
+      </div>
+    </div>
+    <a href="car_listing.html" class="w-full bg-white text-primary h-12 rounded-xl mt-lg font-label-md flex items-center justify-center gap-2 hover:bg-secondary-container transition-all active:scale-95 shadow-lg"><span class="material-symbols-outlined">add</span> Add More Cars</a>
+  `;
+  grid.appendChild(summary);
+}
+
+function renderCompareTable(cars) {
+  const table = document.getElementById("compareTable");
+  let header = `<thead class="bg-surface-container-low sticky top-0"><tr><th class="p-5 border-b border-outline-variant font-bold">Feature</th>`;
+  cars.forEach(car => header += `<th class="p-5 border-b border-outline-variant text-primary font-bold">${car.name}</th>`);
+  header += `</tr></thead>`;
+
+  const rows = [
+    ["Daily Rate", ...cars.map(c => `RM ${c.price}/day`)],
+    ["Category", ...cars.map(c => c.category || "-")],
+    ["Rating", ...cars.map(c => `${c.rating} / 5`)],
+    ["Reviews", ...cars.map(c => `${c.reviews || 0} reviews`)],
+    ["Transmission", ...cars.map(c => c.transmission || "Auto")],
+    ["Seats", ...cars.map(c => c.seats || "5 Seats")],
+    ["Fuel", ...cars.map(c => c.fuel || "Petrol")],
+    ["Insurance", ...cars.map(c => c.insurance || "Included")],
+    ["Condition", ...cars.map(c => c.condition || "Good")],
+    ["Last Maintenance", ...cars.map(c => c.maintenance || "Recently checked")],
+    ["Action", ...cars.map(c => `<button onclick='saveSelectedCar(${JSON.stringify(c).replace(/'/g,"&#39;")})' class="bg-primary text-white px-4 py-2 rounded-lg font-label-md">View Details</button>`)]
+  ];
+
+  let body = `<tbody>`;
+  rows.forEach(row => {
+    body += `<tr class="compare-row">`;
+    row.forEach((cell, index) => body += `<td class="p-5 border-b border-outline-variant/30 ${index === 0 ? 'font-bold text-on-surface' : 'text-on-surface-variant'}">${cell}</td>`);
+    body += `</tr>`;
+  });
+  body += `</tbody>`;
+
+  table.innerHTML = header + body;
+}
+
+function renderSavedPage() {
+  const cars = getSavedCars();
+  const subtitle = document.getElementById("savedSubtitle");
+  const emptyState = document.getElementById("emptyState");
+  const grid = document.getElementById("gridView");
+  const compare = document.getElementById("compareView");
+
+  if (!cars.length) {
+    subtitle.textContent = "You have 0 saved vehicles.";
+    emptyState.classList.remove("hidden");
+    grid.classList.add("hidden");
+    compare.classList.add("hidden");
+    return;
+  }
+
+  subtitle.textContent = `You have ${cars.length} saved vehicle${cars.length > 1 ? 's' : ''} for your next trip around Labuan.`;
+  emptyState.classList.add("hidden");
+  grid.classList.remove("hidden");
+  renderGrid(cars);
+  renderCompareTable(cars);
+}
+
+document.getElementById("gridBtn").addEventListener("click", () => {
+  document.getElementById("gridView").classList.remove("hidden");
+  document.getElementById("compareView").classList.add("hidden");
+  document.getElementById("gridBtn").className = "flex items-center gap-2 px-4 py-2 rounded-lg bg-surface shadow-sm text-primary font-label-md transition-all active:scale-95";
+  document.getElementById("compareBtn").className = "flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-all active:scale-95";
+});
+
+document.getElementById("compareBtn").addEventListener("click", () => {
+  const cars = getSavedCars();
+  if (!cars.length) return;
+  document.getElementById("gridView").classList.add("hidden");
+  document.getElementById("compareView").classList.remove("hidden");
+  document.getElementById("compareBtn").className = "flex items-center gap-2 px-4 py-2 rounded-lg bg-surface shadow-sm text-primary font-label-md transition-all active:scale-95";
+  document.getElementById("gridBtn").className = "flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-all active:scale-95";
+});
+
+renderSavedPage();
+</script>
+</body>
+</html>

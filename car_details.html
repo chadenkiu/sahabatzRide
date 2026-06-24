@@ -4,263 +4,291 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SahabatzRide | Car Details</title>
-
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            background: "#f9f9ff",
-            surface: "#ffffff",
-            primary: "#003d9b",
-            "primary-container": "#0052cc",
-            "surface-container-low": "#f1f3ff",
-            "surface-container-highest": "#d7e2ff",
-            "on-surface": "#041b3c",
+            "secondary-container": "#dfe0e0",
+            "surface-container-lowest": "#ffffff",
             "on-surface-variant": "#434654",
-            outline: "#737685",
+            "background": "#f9f9ff",
+            "surface-container": "#e8edff",
+            "primary-container": "#0052cc",
+            "surface-container-highest": "#d7e2ff",
+            "surface-container-high": "#e0e8ff",
+            "primary": "#003d9b",
+            "on-surface": "#041b3c",
+            "surface": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "outline": "#737685",
             "outline-variant": "#c3c6d6",
+            "surface-container-low": "#f1f3ff",
+            "tertiary-container": "#a33500"
           },
-          fontFamily: {
-            inter: ["Inter", "sans-serif"],
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          spacing: { base: "8px", sm: "12px", "margin-desktop": "80px", md: "24px", "margin-mobile": "16px", xs: "4px", xl: "64px", lg: "40px", gutter: "24px" },
+          fontFamily: { caption: ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"] },
+          fontSize: {
+            caption: ["12px", {lineHeight: "16px", fontWeight: "500"}],
+            "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}],
+            "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}],
+            "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}],
+            "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}],
+            "label-md": ["14px", {lineHeight: "20px", fontWeight: "600"}],
+            "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}]
           }
         }
       }
     }
   </script>
-
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   </style>
 </head>
+<body class="bg-background text-on-surface min-h-screen font-body-md">
 
-<body class="bg-background text-on-surface min-h-screen">
-
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/40">
-  <div class="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
-    <h1 class="text-3xl font-black text-primary">SahabatzRide</h1>
-
-    <nav class="hidden md:flex gap-8 text-sm font-semibold">
-      <a href="index.html" class="text-on-surface-variant hover:text-primary">Home</a>
-      <a href="car_listing.html" class="text-primary border-b-2 border-primary pb-1">Search</a>
-      <a href="saved.html" class="text-on-surface-variant hover:text-primary">Saved</a>
-      <a href="booking.html" class="text-on-surface-variant hover:text-primary">Bookings</a>
+<header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <button class="text-primary active:scale-95 duration-200 md:hidden"><span class="material-symbols-outlined">menu</span></button>
+      <h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">SahabatzRide</h1>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="index.html">Home</a>
+      <a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors py-1" href="car_listing.html">Search</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="saved.html">Saved</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="booking.html">Bookings</a>
     </nav>
-
-    <img src="https://i.pravatar.cc/100?img=12" class="w-10 h-10 rounded-full border-2 border-primary/20" alt="Profile">
+    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30">
+      <img alt="User Profile" src="https://i.pravatar.cc/100?img=12" class="w-full h-full object-cover">
+    </button>
   </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-6 md:px-20 py-10">
-
-  <div class="flex justify-between items-center mb-6">
-    <a href="car_listing.html" class="flex items-center gap-2 text-primary font-bold hover:underline">
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+  <div class="flex justify-between items-center mb-lg">
+    <a href="car_listing.html" class="flex items-center gap-2 text-primary font-label-md hover:underline active:scale-95 transition-transform">
       <span class="material-symbols-outlined">arrow_back</span>
       Back to Results
     </a>
 
     <div class="flex gap-3">
-      <a href="saved.html" class="border border-outline-variant px-4 py-2 rounded-lg font-semibold text-on-surface-variant hover:text-primary hover:border-primary flex gap-2">
+      <button id="saveBtn" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
         <span class="material-symbols-outlined">favorite</span>
-        Bookmark
-      </a>
-      <button class="border border-outline-variant px-4 py-2 rounded-lg font-semibold text-on-surface-variant hover:text-primary hover:border-primary flex gap-2">
+        Save
+      </button>
+      <button onclick="navigator.clipboard?.writeText(location.href); alert('Link copied for prototype demo!')" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
         <span class="material-symbols-outlined">share</span>
         Share
       </button>
     </div>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-    <!-- Left Content -->
-    <section class="lg:col-span-8 space-y-6">
-
-      <div class="rounded-xl overflow-hidden shadow-sm bg-white">
-        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1400&q=80"
-             class="w-full h-[420px] object-cover" alt="BMW 5 Series">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <section class="lg:col-span-8 space-y-md">
+      <div class="space-y-sm">
+        <div class="w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant/30">
+          <img id="mainImage" class="w-full h-full object-cover" alt="Selected car image">
+        </div>
+        <div id="gallery" class="grid grid-cols-4 gap-sm"></div>
       </div>
 
-      <div class="grid grid-cols-4 gap-4">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg border-2 border-primary">
-        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg">
-        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=500&q=80" class="h-28 w-full object-cover rounded-lg">
-        <div class="h-28 rounded-lg bg-black/60 text-white flex items-center justify-center font-bold">+12 Photos</div>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
-        <div class="flex justify-between items-start">
+      <div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30">
+        <div class="flex flex-col md:flex-row md:justify-between gap-md md:items-start mb-sm">
           <div>
-            <h2 class="text-3xl font-black">BMW 5 Series</h2>
-            <p class="text-on-surface-variant mt-1 flex items-center gap-1">
+            <h2 id="carName" class="font-headline-lg text-headline-lg text-on-surface">Car Name</h2>
+            <p class="text-on-surface-variant font-body-md text-body-md flex items-center gap-1 mt-xs">
               <span class="material-symbols-outlined text-sm">location_on</span>
               Labuan, Malaysia
             </p>
           </div>
-
-          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-            <span class="material-symbols-outlined text-sm">check_circle</span>
+          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-caption font-bold flex items-center gap-1 w-fit">
+            <span class="material-symbols-outlined text-[14px]">check_circle</span>
             Available
           </span>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 my-6 border-y border-outline-variant/40">
-          <div>
-            <p class="text-xs text-outline">Transmission</p>
-            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">settings</span>Auto</p>
-          </div>
-          <div>
-            <p class="text-xs text-outline">Fuel Type</p>
-            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">local_gas_station</span>Hybrid</p>
-          </div>
-          <div>
-            <p class="text-xs text-outline">Seats</p>
-            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">person</span>5 Seats</p>
-          </div>
-          <div>
-            <p class="text-xs text-outline">Mileage</p>
-            <p class="font-bold flex gap-2 mt-1"><span class="material-symbols-outlined">speed</span>Unlimited</p>
-          </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-sm py-md border-y border-outline-variant/30 my-md">
+          <div><span class="text-outline text-caption">Category</span><p id="category" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">directions_car</span></p></div>
+          <div><span class="text-outline text-caption">Transmission</span><p id="transmission" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">settings</span></p></div>
+          <div><span class="text-outline text-caption">Seats</span><p id="seats" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">person</span></p></div>
+          <div><span class="text-outline text-caption">Fuel</span><p id="fuel" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">local_gas_station</span></p></div>
         </div>
 
-        <h3 class="font-bold mb-2">Description</h3>
-        <p class="text-on-surface-variant leading-relaxed">
-          A comfortable and reliable sedan suitable for UMS Labuan students who need transport for classes,
-          assignments, events, shopping, and short trips around Labuan. This vehicle is verified, clean, and ready for rental.
-        </p>
+        <h3 class="font-label-md text-label-md text-on-surface mb-2">Description</h3>
+        <p id="description" class="font-body-md text-body-md text-on-surface-variant leading-relaxed"></p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/40">
-          <h3 class="font-bold flex gap-2 mb-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+        <div class="bg-surface-container-low p-md rounded-xl border border-outline-variant/30">
+          <div class="flex items-center gap-2 mb-sm">
             <span class="material-symbols-outlined text-primary">verified_user</span>
-            Maintenance Status
-          </h3>
-          <div class="flex justify-between">
-            <span class="text-on-surface-variant">Last Service</span>
-            <b>May 28, 2026</b>
+            <h3 class="font-label-md text-label-md text-on-surface">Maintenance Status</h3>
           </div>
-          <div class="w-full h-2 bg-outline-variant rounded-full mt-4">
-            <div class="w-[85%] h-full bg-primary rounded-full"></div>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center"><span class="text-body-md text-on-surface-variant">Last Service</span><span id="service" class="text-label-md text-on-surface"></span></div>
+            <div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden"><div id="serviceBar" class="bg-primary h-full rounded-full"></div></div>
+            <p id="nextService" class="text-caption text-on-surface-variant italic"></p>
           </div>
-          <p class="text-sm text-on-surface-variant mt-3">Next maintenance due in 2,400 km.</p>
         </div>
 
-        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/40">
-          <h3 class="font-bold flex gap-2 mb-4">
+        <div class="bg-surface-container-low p-md rounded-xl border border-outline-variant/30">
+          <div class="flex items-center gap-2 mb-sm">
             <span class="material-symbols-outlined text-primary">assignment_turned_in</span>
-            Vehicle Condition Report
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-white px-3 py-1 rounded-full text-sm">Exterior: Excellent</span>
-            <span class="bg-white px-3 py-1 rounded-full text-sm">Interior: Clean</span>
-            <span class="bg-white px-3 py-1 rounded-full text-sm">Aircond: Good</span>
-            <span class="bg-white px-3 py-1 rounded-full text-sm">Fuel: Full</span>
+            <h3 class="font-label-md text-label-md text-on-surface">Vehicle Condition Report</h3>
           </div>
+          <div id="conditionTags" class="flex flex-wrap gap-2"></div>
         </div>
       </div>
 
+      <section class="mt-xl pt-lg border-t border-outline-variant/30">
+        <div class="flex justify-between items-center mb-md">
+          <h2 id="reviewTitle" class="font-headline-md text-headline-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings:'FILL' 1;">star</span>
+          </h2>
+          <button class="text-primary font-label-md hover:underline">Write a Review</button>
+        </div>
+        <div id="reviews" class="grid grid-cols-1 md:grid-cols-2 gap-md"></div>
+      </section>
     </section>
 
-    <!-- Booking Card -->
     <aside class="lg:col-span-4">
-      <div class="sticky top-24 bg-white p-6 rounded-xl shadow-xl border border-outline-variant/40">
-        <div class="flex justify-between items-end mb-5">
+      <div class="sticky top-[88px] bg-surface-container-lowest p-md rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-outline-variant/30">
+        <div class="flex justify-between items-end mb-md">
           <div>
-            <p class="text-sm text-on-surface-variant">Price from</p>
-            <p class="text-3xl font-black text-primary">RM350 <span class="text-base text-on-surface-variant font-normal">/ day</span></p>
+            <span class="text-on-surface-variant text-caption font-caption">Price from</span>
+            <div class="flex items-baseline gap-1">
+              <h4 id="price" class="font-headline-lg text-headline-lg text-primary"></h4>
+              <span class="text-on-surface-variant text-body-md">/ day</span>
+            </div>
           </div>
-
-          <div class="flex items-center gap-1 text-yellow-500 font-bold">
-            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>
-            4.9
-          </div>
-        </div>
-
-        <div class="space-y-3 mb-5">
-          <div class="p-4 border border-outline-variant rounded-lg">
-            <p class="text-xs font-bold text-outline uppercase">Pickup</p>
-            <p class="font-semibold">Sat, Jun 15 · 10:00 AM</p>
-          </div>
-          <div class="p-4 border border-outline-variant rounded-lg">
-            <p class="text-xs font-bold text-outline uppercase">Return</p>
-            <p class="font-semibold">Mon, Jun 17 · 10:00 AM</p>
+          <div class="flex items-center gap-1 text-yellow-600">
+            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            <span id="rating" class="font-label-md"></span>
           </div>
         </div>
 
-        <div class="border-t border-outline-variant/40 pt-4 space-y-3">
-          <div class="flex justify-between text-on-surface-variant">
-            <span>RM350 x 2 days</span>
-            <span>RM700</span>
+        <div class="space-y-sm mb-md">
+          <div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background">
+            <div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pickup</span><span id="pickupDate" class="text-label-md">Select from homepage</span></div>
+            <span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
           </div>
-          <div class="flex justify-between text-on-surface-variant">
-            <span>Insurance</span>
-            <span>RM80</span>
-          </div>
-          <div class="flex justify-between font-black text-lg">
-            <span>Total</span>
-            <span>RM780</span>
+          <div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background">
+            <div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Return</span><span id="returnDate" class="text-label-md">Select from homepage</span></div>
+            <span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
           </div>
         </div>
 
-        <a href="booking.html" class="mt-6 w-full h-12 bg-primary text-white rounded-xl font-bold flex items-center justify-center hover:bg-primary-container">
+        <div class="space-y-3 mb-md py-4 border-t border-outline-variant/30">
+          <div class="flex justify-between text-on-surface-variant"><span id="calculationText"></span><span id="subtotal"></span></div>
+          <div class="flex justify-between text-on-surface-variant"><span>Insurance</span><span>RM 80</span></div>
+          <div class="flex justify-between text-on-surface font-bold"><span>Total Price</span><span id="total"></span></div>
+        </div>
+
+        <button id="reserveBtn" class="w-full h-[48px] bg-primary text-on-primary rounded-xl font-label-md text-label-md active:scale-95 transition-transform shadow-md hover:bg-primary-container">
           Reserve Now
-        </a>
-
-        <p class="text-center text-sm text-on-surface-variant mt-3">You won’t be charged yet</p>
+        </button>
+        <p class="text-center text-caption text-on-surface-variant mt-4">Prototype only: no real payment required</p>
       </div>
     </aside>
-
   </div>
-
-  <!-- Reviews -->
-  <section class="mt-16 pt-10 border-t border-outline-variant/40">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-2xl font-black flex items-center gap-2">
-        <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings:'FILL' 1">star</span>
-        4.9 · 128 Reviews
-      </h2>
-      <button class="text-primary font-bold hover:underline">Write a Review</button>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white p-6 rounded-xl border border-outline-variant/30">
-        <p class="font-bold">Sandra Lim</p>
-        <p class="text-sm text-outline">2 weeks ago</p>
-        <p class="text-yellow-500 mt-2">★★★★★</p>
-        <p class="text-on-surface-variant mt-3">
-          The car was clean and the condition report helped me feel more confident before booking.
-        </p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl border border-outline-variant/30">
-        <p class="font-bold">Aiman Hakim</p>
-        <p class="text-sm text-outline">1 month ago</p>
-        <p class="text-yellow-500 mt-2">★★★★★</p>
-        <p class="text-on-surface-variant mt-3">
-          Easy to book and the availability status was clear. I did not need to open many listings.
-        </p>
-      </div>
-    </div>
-  </section>
 </main>
 
-<footer class="bg-surface-container-highest mt-16 py-8 border-t border-outline-variant/30">
-  <div class="max-w-7xl mx-auto px-6 md:px-20 flex justify-between text-sm text-on-surface-variant">
-    <p>© 2024 SahabatzRide. Built for UMS Labuan students.</p>
-    <div class="flex gap-6">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Help Center</a>
-    </div>
+<footer class="bg-surface-container-highest mt-xl py-lg border-t border-outline-variant/30">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md">
+    <p class="text-caption text-outline">© 2024 SahabatzRide. Built for UMS Labuan students.</p>
+    <div class="flex gap-md"><a class="text-caption text-outline hover:text-primary" href="#">Privacy Policy</a><a class="text-caption text-outline hover:text-primary" href="#">Help Center</a></div>
   </div>
 </footer>
 
+<script>
+  const fallbackCars = [
+    {id:1,name:'BMW 5 Series',category:'Sedan',price:350,rating:4.9,reviewsCount:128,transmission:'Auto',seats:'5 Seats',fuel:'Hybrid',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuB1JrYmnAOBo73W42VTGhIm3VA-Z55VfdGwz5s6rGUx3Z8RJKJIDM-axl_dMlsPh64tqXIKTzTCdnGCHY5CWZlUq80tlzBLz9ZQf5kAsmcsHKTU0hACrUhvcZZ_Tb5tlpKL6T-gDsrn_1DPSCSRb6Pj5-oJ27JyEyuiaHTtixcDoji_MgIGHM3v0Pv_y6o8Or19jpOeioE_VOpTZD4dWZthotZ5K4erLVLFN0gMcKFm2eDlpM0rG7sLrldCpV8nxS7f5OYiv5q2jag',description:'A comfortable premium sedan suitable for UMS Labuan students who need reliable transport for assignments, events, shopping, and short trips around Labuan.',service:'May 28, 2026',servicePercent:85,nextService:'Next maintenance due in 2,400 km.',condition:['Exterior: Excellent','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['The car was clean and comfortable. The condition report helped me feel confident before booking.','Availability status was clear and I did not need to open many listings.']},
+    {id:2,name:'Toyota Harrier',category:'SUV',price:280,rating:4.7,reviewsCount:85,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuBrLldxAHyXk6brHfZkZ2YY-bnGKp7BvcasnysgjhN-wGcGWrrHCMbq08CHepX4f-4u4zSTZQsmHJkTa4YxJrq4Ue6R6mzn2aWCcHD7QdeUJIR9T2tVB-0dX19LMRbIwarlJSo29yDHqXXrxPVRxdcZtogNrZUEQmpyaMojjRBx7E4028TxmS-Zhd2UghYpFNVSqozqt37bRmbrfJA6Ejc_BjPapICcXrw2hutW7nDM0mnR1YxmYP5voikmh029KHqgLFiLzwFp0as',description:'A spacious SUV for group trips, fieldwork, and weekend travel around Labuan. Good for students carrying bags or equipment.',service:'June 2, 2026',servicePercent:78,nextService:'Next maintenance due in 1,900 km.',condition:['Exterior: Good','Interior: Clean','Aircond: Excellent','Tires: 85%'],reviews:['Perfect for group assignment trips. Spacious and easy to drive.','The pickup process was simple and the car condition was transparent.']},
+    {id:3,name:'Honda Civic',category:'Sedan',price:220,rating:4.6,reviewsCount:56,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuBGUtcXtCWu-MFj2h8QSD4aliaU6QA8z6KEpk1gy2mVmmZuSPDdy3-g1cAwM6DfnGkcIAxZxXPHbJ65DPYNjF81xXCvsH11uUlzI3vfaXD2nxZzFfp7-v-7CHyRReJR8MEOIhRi6UbYmSfgrh2n3_-BH2Dos_xvZHrRP9YK8LYbmitd7goGBh1aCW7mn9dtvf_-Vp5kvFxLxZDTmDYPwgJYVl1VdyTuiBwlkHXtc9bj6fWoHAvpG-y6pJkUQgn74NXjbwL7ddzcp6E',description:'A practical sedan for daily student use, campus activities, shopping, and short trips. Easy to handle and fuel efficient.',service:'May 18, 2026',servicePercent:82,nextService:'Next maintenance due in 2,100 km.',condition:['Exterior: Good','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['Nice car for daily errands around Labuan.','Clear details and reviews made the booking easier.']}
+  ];
+
+  function getCar() {
+    const stored = localStorage.getItem('selectedCar');
+    if (stored) return JSON.parse(stored);
+    const params = new URLSearchParams(window.location.search);
+    const id = Number(params.get('id')) || 1;
+    return fallbackCars.find(c => c.id === id) || fallbackCars[0];
+  }
+
+  function saveCar(car) {
+    const saved = JSON.parse(localStorage.getItem('savedCars') || '[]');
+    if (!saved.some(item => item.id === car.id)) saved.push(car);
+    localStorage.setItem('savedCars', JSON.stringify(saved));
+    alert(car.name + ' has been saved.');
+  }
+
+  function renderCar() {
+    const car = getCar();
+    const pickup = localStorage.getItem('pickupDate') || 'Sat, Jun 15 · 10:00 AM';
+    const ret = localStorage.getItem('returnDate') || 'Mon, Jun 17 · 10:00 AM';
+    const days = 2;
+    const subtotal = car.price * days;
+    const total = subtotal + 80;
+
+    document.title = `SahabatzRide | ${car.name}`;
+    document.getElementById('mainImage').src = car.image;
+    document.getElementById('mainImage').alt = car.name;
+    document.getElementById('carName').textContent = car.name;
+    document.getElementById('category').append(car.category);
+    document.getElementById('transmission').append(car.transmission);
+    document.getElementById('seats').append(car.seats);
+    document.getElementById('fuel').append(car.fuel);
+    document.getElementById('description').textContent = car.description;
+    document.getElementById('service').textContent = car.service;
+    document.getElementById('serviceBar').style.width = (car.servicePercent || 80) + '%';
+    document.getElementById('nextService').textContent = car.nextService;
+    document.getElementById('price').textContent = 'RM ' + car.price;
+    document.getElementById('rating').textContent = car.rating;
+    document.getElementById('pickupDate').textContent = pickup;
+    document.getElementById('returnDate').textContent = ret;
+    document.getElementById('calculationText').textContent = `RM ${car.price} x ${days} days`;
+    document.getElementById('subtotal').textContent = `RM ${subtotal}`;
+    document.getElementById('total').textContent = `RM ${total}`;
+    document.getElementById('reviewTitle').append(`${car.rating} · ${car.reviewsCount} Reviews`);
+
+    const gallery = [car.image, car.image, car.image];
+    document.getElementById('gallery').innerHTML = gallery.map((src, index) => `
+      <div class="aspect-square rounded-lg overflow-hidden ${index === 0 ? 'border-2 border-primary' : 'opacity-80 hover:opacity-100'}">
+        <img class="w-full h-full object-cover" src="${src}" alt="${car.name} gallery image">
+      </div>`).join('') + `<div class="aspect-square rounded-lg bg-black/60 text-white flex items-center justify-center font-label-md">+12 Photos</div>`;
+
+    document.getElementById('conditionTags').innerHTML = car.condition.map(item => `
+      <span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">check</span>${item}
+      </span>`).join('');
+
+    document.getElementById('reviews').innerHTML = car.reviews.map((review, index) => `
+      <div class="space-y-sm bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden"><img src="https://i.pravatar.cc/100?img=${index + 20}" class="w-full h-full object-cover"></div>
+          <div><p class="font-label-md text-on-surface">${index === 0 ? 'Sandra Lim' : 'Aiman Hakim'}</p><p class="text-caption text-on-surface-variant">${index === 0 ? '2 weeks ago' : '1 month ago'}</p></div>
+        </div>
+        <div class="text-yellow-600">★★★★★</div>
+        <p class="text-body-md text-on-surface-variant">${review}</p>
+      </div>`).join('');
+
+    document.getElementById('saveBtn').addEventListener('click', () => saveCar(car));
+    document.getElementById('reserveBtn').addEventListener('click', () => {
+      localStorage.setItem('bookingCar', JSON.stringify(car));
+      localStorage.setItem('bookingTotal', total);
+      window.location.href = 'booking.html';
+    });
+  }
+
+  renderCar();
+</script>
 </body>
 </html>
