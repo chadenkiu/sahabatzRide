@@ -101,11 +101,9 @@
       <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="booking.html">Bookings</a>
     </nav>
 
-    <div class="flex items-center gap-4">
-      <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30">
-        <img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHJS7Gqost7-EUq3Vp28sQAOMHHxauol_5A_GOluOxar3eeExkuJ9J-0Vxkm4qwfaHaKVkoYt3Zry_Ptvfi8WMgqez6gSuDnXyS957QCG_jh1bk-QdFH2oxp5C9q6FqU8t3UMXkUzuHo0gaHm3VX-FS8GFsGA90ymGYmn5UIGxc8XTzp5YAIZ9zrBC4ryp0H2y_-NGLOiq2v-fGcXZqoD7oAVQzD8DT7f-zbUGIGphOos--6g2pikchcTenSPmiMiOAIaphKhP5M" class="w-full h-full object-cover">
-      </button>
-    </div>
+    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg">
+      <img alt="User Profile" src="https://i.pravatar.cc/100?img=12" class="w-full h-full object-cover">
+    </button>
   </div>
 </header>
 
@@ -380,6 +378,20 @@ const pickupDate = document.getElementById("pickupDate");
 const returnDate = document.getElementById("returnDate");
 let minRating = 0;
 
+function todayISO(offset = 0) {
+  const d = new Date();
+  d.setDate(d.getDate() + offset);
+  return d.toISOString().split("T")[0];
+}
+
+function setupDateDefaults() {
+  const rental = JSON.parse(localStorage.getItem("rentalDates") || "{}");
+  pickupDate.min = todayISO(0);
+  returnDate.min = todayISO(1);
+  pickupDate.value = localStorage.getItem("pickupDate") || rental.pickup || "";
+  returnDate.value = localStorage.getItem("returnDate") || rental.returnDate || "";
+}
+
 function getSavedCars() {
   return JSON.parse(localStorage.getItem("savedCars") || "[]");
 }
@@ -524,15 +536,18 @@ function toggleSave(carId) {
 
 function viewDetails(carId) {
   const car = cars.find(item => item.id === carId);
-  const pickup = pickupDate.value || "2026-06-15";
-  const returnDateValue = returnDate.value || "2026-06-17";
+  const pickup = pickupDate.value || todayISO(1);
+  const returnDateValue = returnDate.value || todayISO(3);
 
   localStorage.setItem("selectedCar", JSON.stringify(car));
+  localStorage.setItem("bookingCar", JSON.stringify(car));
+  localStorage.setItem("pickupDate", pickup);
+  localStorage.setItem("returnDate", returnDateValue);
   localStorage.setItem("rentalDates", JSON.stringify({ pickup, returnDate: returnDateValue }));
 
   car.viewed = true;
   localStorage.setItem("viewedCarId", String(carId));
-  window.location.href = "car_details.html";
+  window.location.href = `car_details.html?id=${carId}`;
 }
 
 function clearAllFilters() {
@@ -571,6 +586,7 @@ document.querySelectorAll(".ratingBtn").forEach(btn => {
 document.getElementById("clearFilters").addEventListener("click", clearAllFilters);
 document.getElementById("claimBtn").addEventListener("click", () => showToast("Student offer applied for weekly rental"));
 
+setupDateDefaults();
 renderCars();
 </script>
 </body>

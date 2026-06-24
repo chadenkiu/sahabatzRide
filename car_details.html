@@ -10,50 +10,32 @@
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "secondary-container": "#dfe0e0",
-            "surface-container-lowest": "#ffffff",
-            "on-surface-variant": "#434654",
-            "background": "#f9f9ff",
-            "surface-container": "#e8edff",
-            "primary-container": "#0052cc",
-            "surface-container-highest": "#d7e2ff",
-            "surface-container-high": "#e0e8ff",
-            "primary": "#003d9b",
-            "on-surface": "#041b3c",
-            "surface": "#f9f9ff",
-            "on-primary": "#ffffff",
-            "error": "#ba1a1a",
-            "outline": "#737685",
-            "outline-variant": "#c3c6d6",
-            "surface-container-low": "#f1f3ff",
-            "tertiary-container": "#a33500"
-          },
-          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
-          spacing: { base: "8px", sm: "12px", "margin-desktop": "80px", md: "24px", "margin-mobile": "16px", xs: "4px", xl: "64px", lg: "40px", gutter: "24px" },
-          fontFamily: { caption: ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"] },
-          fontSize: {
-            caption: ["12px", {lineHeight: "16px", fontWeight: "500"}],
-            "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}],
-            "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}],
-            "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}],
-            "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}],
-            "label-md": ["14px", {lineHeight: "20px", fontWeight: "600"}],
-            "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}]
-          }
+      theme: { extend: {
+        colors: {
+          "secondary-container": "#dfe0e0", "surface-container-lowest": "#ffffff", "on-surface-variant": "#434654",
+          "background": "#f9f9ff", "surface-container": "#e8edff", "primary-container": "#0052cc",
+          "surface-container-highest": "#d7e2ff", "surface-container-high": "#e0e8ff", "primary": "#003d9b",
+          "on-surface": "#041b3c", "surface": "#f9f9ff", "on-primary": "#ffffff", "error": "#ba1a1a",
+          "outline": "#737685", "outline-variant": "#c3c6d6", "surface-container-low": "#f1f3ff", "tertiary-container": "#a33500"
+        },
+        borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        spacing: { base: "8px", sm: "12px", "margin-desktop": "80px", md: "24px", "margin-mobile": "16px", xs: "4px", xl: "64px", lg: "40px", gutter: "24px" },
+        fontFamily: { caption: ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"] },
+        fontSize: {
+          caption: ["12px", {lineHeight:"16px", fontWeight:"500"}], "display-lg": ["48px", {lineHeight:"56px", letterSpacing:"-0.02em", fontWeight:"700"}],
+          "headline-lg": ["32px", {lineHeight:"40px", letterSpacing:"-0.01em", fontWeight:"700"}], "headline-md": ["24px", {lineHeight:"32px", fontWeight:"600"}],
+          "body-lg": ["18px", {lineHeight:"28px", fontWeight:"400"}], "label-md": ["14px", {lineHeight:"20px", fontWeight:"600"}], "body-md": ["16px", {lineHeight:"24px", fontWeight:"400"}]
         }
-      }
+      }}
     }
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: Inter, sans-serif; }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   </style>
 </head>
 <body class="bg-background text-on-surface min-h-screen font-body-md">
-
 <header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-50">
   <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
     <div class="flex items-center gap-4">
@@ -66,28 +48,20 @@
       <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="saved.html">Saved</a>
       <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="booking.html">Bookings</a>
     </nav>
-    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg active:scale-95 transition-transform ring-2 ring-offset-2 ring-transparent hover:ring-primary/30">
+    <button class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/20 shadow-lg">
       <img alt="User Profile" src="https://i.pravatar.cc/100?img=12" class="w-full h-full object-cover">
     </button>
   </div>
 </header>
 
+<div id="toast" class="hidden fixed top-24 right-6 z-[99] bg-on-surface text-white px-5 py-3 rounded-xl shadow-xl text-label-md"></div>
+
 <main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
   <div class="flex justify-between items-center mb-lg">
-    <a href="car_listing.html" class="flex items-center gap-2 text-primary font-label-md hover:underline active:scale-95 transition-transform">
-      <span class="material-symbols-outlined">arrow_back</span>
-      Back to Results
-    </a>
-
+    <a href="car_listing.html" class="flex items-center gap-2 text-primary font-label-md hover:underline"><span class="material-symbols-outlined">arrow_back</span>Back to Results</a>
     <div class="flex gap-3">
-      <button id="saveBtn" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
-        <span class="material-symbols-outlined">favorite</span>
-        Save
-      </button>
-      <button onclick="navigator.clipboard?.writeText(location.href); alert('Link copied for prototype demo!')" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low active:scale-95 transition-all hover:border-primary">
-        <span class="material-symbols-outlined">share</span>
-        Share
-      </button>
+      <button id="saveBtn" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low hover:border-primary"><span class="material-symbols-outlined">favorite</span>Save</button>
+      <button onclick="navigator.clipboard?.writeText(location.href); showToast('Link copied!')" class="flex items-center gap-2 border border-outline-variant px-4 py-2 rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-low hover:border-primary"><span class="material-symbols-outlined">share</span>Share</button>
     </div>
   </div>
 
@@ -104,15 +78,14 @@
         <div class="flex flex-col md:flex-row md:justify-between gap-md md:items-start mb-sm">
           <div>
             <h2 id="carName" class="font-headline-lg text-headline-lg text-on-surface">Car Name</h2>
-            <p class="text-on-surface-variant font-body-md text-body-md flex items-center gap-1 mt-xs">
-              <span class="material-symbols-outlined text-sm">location_on</span>
-              Labuan, Malaysia
-            </p>
+            <div class="flex flex-wrap items-center gap-2 mt-xs">
+              <span id="starText" class="text-yellow-600 font-bold">★★★★★</span>
+              <span id="topRating" class="font-label-md text-label-md text-on-surface"></span>
+              <span id="topReviewCount" class="text-caption text-outline"></span>
+            </div>
+            <p class="text-on-surface-variant font-body-md text-body-md flex items-center gap-1 mt-xs"><span class="material-symbols-outlined text-sm">location_on</span>Labuan, Malaysia</p>
           </div>
-          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-caption font-bold flex items-center gap-1 w-fit">
-            <span class="material-symbols-outlined text-[14px]">check_circle</span>
-            Available
-          </span>
+          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-caption font-bold flex items-center gap-1 w-fit"><span class="material-symbols-outlined text-[14px]">check_circle</span>Available</span>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-sm py-md border-y border-outline-variant/30 my-md">
@@ -121,39 +94,29 @@
           <div><span class="text-outline text-caption">Seats</span><p id="seats" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">person</span></p></div>
           <div><span class="text-outline text-caption">Fuel</span><p id="fuel" class="font-label-md flex items-center gap-2 mt-xs"><span class="material-symbols-outlined">local_gas_station</span></p></div>
         </div>
-
         <h3 class="font-label-md text-label-md text-on-surface mb-2">Description</h3>
         <p id="description" class="font-body-md text-body-md text-on-surface-variant leading-relaxed"></p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
         <div class="bg-surface-container-low p-md rounded-xl border border-outline-variant/30">
-          <div class="flex items-center gap-2 mb-sm">
-            <span class="material-symbols-outlined text-primary">verified_user</span>
-            <h3 class="font-label-md text-label-md text-on-surface">Maintenance Status</h3>
-          </div>
+          <div class="flex items-center gap-2 mb-sm"><span class="material-symbols-outlined text-primary">verified_user</span><h3 class="font-label-md text-label-md text-on-surface">Maintenance Status</h3></div>
           <div class="space-y-4">
             <div class="flex justify-between items-center"><span class="text-body-md text-on-surface-variant">Last Service</span><span id="service" class="text-label-md text-on-surface"></span></div>
             <div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden"><div id="serviceBar" class="bg-primary h-full rounded-full"></div></div>
             <p id="nextService" class="text-caption text-on-surface-variant italic"></p>
           </div>
         </div>
-
         <div class="bg-surface-container-low p-md rounded-xl border border-outline-variant/30">
-          <div class="flex items-center gap-2 mb-sm">
-            <span class="material-symbols-outlined text-primary">assignment_turned_in</span>
-            <h3 class="font-label-md text-label-md text-on-surface">Vehicle Condition Report</h3>
-          </div>
+          <div class="flex items-center gap-2 mb-sm"><span class="material-symbols-outlined text-primary">assignment_turned_in</span><h3 class="font-label-md text-label-md text-on-surface">Vehicle Condition Report</h3></div>
           <div id="conditionTags" class="flex flex-wrap gap-2"></div>
         </div>
       </div>
 
       <section class="mt-xl pt-lg border-t border-outline-variant/30">
         <div class="flex justify-between items-center mb-md">
-          <h2 id="reviewTitle" class="font-headline-md text-headline-md flex items-center gap-2">
-            <span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings:'FILL' 1;">star</span>
-          </h2>
-          <button class="text-primary font-label-md hover:underline">Write a Review</button>
+          <h2 id="reviewTitle" class="font-headline-md text-headline-md flex items-center gap-2"><span class="material-symbols-outlined text-tertiary-container filled">star</span></h2>
+          <span class="text-primary font-label-md">Prototype Reviews</span>
         </div>
         <div id="reviews" class="grid grid-cols-1 md:grid-cols-2 gap-md"></div>
       </section>
@@ -162,39 +125,25 @@
     <aside class="lg:col-span-4">
       <div class="sticky top-[88px] bg-surface-container-lowest p-md rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-outline-variant/30">
         <div class="flex justify-between items-end mb-md">
-          <div>
-            <span class="text-on-surface-variant text-caption font-caption">Price from</span>
-            <div class="flex items-baseline gap-1">
-              <h4 id="price" class="font-headline-lg text-headline-lg text-primary"></h4>
-              <span class="text-on-surface-variant text-body-md">/ day</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-1 text-yellow-600">
-            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
-            <span id="rating" class="font-label-md"></span>
-          </div>
+          <div><span class="text-on-surface-variant text-caption font-caption">Price from</span><div class="flex items-baseline gap-1"><h4 id="price" class="font-headline-lg text-headline-lg text-primary"></h4><span class="text-on-surface-variant text-body-md">/ day</span></div></div>
+          <div class="flex items-center gap-1 text-yellow-600"><span class="material-symbols-outlined filled">star</span><span id="rating" class="font-label-md"></span></div>
         </div>
 
         <div class="space-y-sm mb-md">
-          <div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background">
-            <div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pickup</span><span id="pickupDate" class="text-label-md">Select from homepage</span></div>
-            <span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
-          </div>
-          <div class="p-3 border border-outline-variant rounded-lg flex justify-between items-center bg-background">
-            <div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Return</span><span id="returnDate" class="text-label-md">Select from homepage</span></div>
-            <span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
-          </div>
+          <div class="p-3 border border-outline-variant rounded-lg bg-background"><div class="flex items-center justify-between mb-2"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pickup Date</span><span class="material-symbols-outlined text-on-surface-variant text-[20px]">calendar_month</span></div><input id="pickupDateInput" type="date" class="w-full bg-white border border-outline-variant rounded-lg px-3 py-2 text-label-md focus:ring-2 focus:ring-primary focus:border-primary"></div>
+          <div class="p-3 border border-outline-variant rounded-lg bg-background"><div class="flex items-center justify-between mb-2"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Return Date</span><span class="material-symbols-outlined text-on-surface-variant text-[20px]">calendar_month</span></div><input id="returnDateInput" type="date" class="w-full bg-white border border-outline-variant rounded-lg px-3 py-2 text-label-md focus:ring-2 focus:ring-primary focus:border-primary"></div>
         </div>
 
-        <div class="space-y-3 mb-md py-4 border-t border-outline-variant/30">
-          <div class="flex justify-between text-on-surface-variant"><span id="calculationText"></span><span id="subtotal"></span></div>
-          <div class="flex justify-between text-on-surface-variant"><span>Insurance</span><span>RM 80</span></div>
-          <div class="flex justify-between text-on-surface font-bold"><span>Total Price</span><span id="total"></span></div>
+        <div id="dateMessage" class="hidden mb-md rounded-lg bg-yellow-50 border border-yellow-200 text-yellow-800 px-3 py-2 text-caption"></div>
+
+        <div class="bg-surface-container-low rounded-xl p-md mb-md space-y-sm">
+          <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Rental Days</span><span id="days" class="font-bold"></span></div>
+          <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Rate Calculation</span><span id="calculationText" class="font-bold text-right"></span></div>
+          <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Insurance</span><span id="insuranceText" class="font-bold">RM 80</span></div>
+          <div class="border-t border-outline-variant/30 pt-sm flex justify-between text-on-surface font-bold text-body-lg"><span>Total Price</span><span id="total" class="text-primary"></span></div>
         </div>
 
-        <button id="reserveBtn" class="w-full h-[48px] bg-primary text-on-primary rounded-xl font-label-md text-label-md active:scale-95 transition-transform shadow-md hover:bg-primary-container">
-          Reserve Now
-        </button>
+        <button id="reserveBtn" class="w-full h-[48px] bg-primary text-on-primary rounded-xl font-label-md text-label-md active:scale-95 transition-transform shadow-md hover:bg-primary-container">Reserve Now</button>
         <p class="text-center text-caption text-on-surface-variant mt-4">Prototype only: no real payment required</p>
       </div>
     </aside>
@@ -203,92 +152,147 @@
 
 <footer class="bg-surface-container-highest mt-xl py-lg border-t border-outline-variant/30">
   <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md">
-    <p class="text-caption text-outline">© 2024 SahabatzRide. Built for UMS Labuan students.</p>
+    <p class="text-caption text-outline">© 2026 SahabatzRide. Built for UMS Labuan students.</p>
     <div class="flex gap-md"><a class="text-caption text-outline hover:text-primary" href="#">Privacy Policy</a><a class="text-caption text-outline hover:text-primary" href="#">Help Center</a></div>
   </div>
 </footer>
 
 <script>
-  const fallbackCars = [
-    {id:1,name:'BMW 5 Series',category:'Sedan',price:350,rating:4.9,reviewsCount:128,transmission:'Auto',seats:'5 Seats',fuel:'Hybrid',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuB1JrYmnAOBo73W42VTGhIm3VA-Z55VfdGwz5s6rGUx3Z8RJKJIDM-axl_dMlsPh64tqXIKTzTCdnGCHY5CWZlUq80tlzBLz9ZQf5kAsmcsHKTU0hACrUhvcZZ_Tb5tlpKL6T-gDsrn_1DPSCSRb6Pj5-oJ27JyEyuiaHTtixcDoji_MgIGHM3v0Pv_y6o8Or19jpOeioE_VOpTZD4dWZthotZ5K4erLVLFN0gMcKFm2eDlpM0rG7sLrldCpV8nxS7f5OYiv5q2jag',description:'A comfortable premium sedan suitable for UMS Labuan students who need reliable transport for assignments, events, shopping, and short trips around Labuan.',service:'May 28, 2026',servicePercent:85,nextService:'Next maintenance due in 2,400 km.',condition:['Exterior: Excellent','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['The car was clean and comfortable. The condition report helped me feel confident before booking.','Availability status was clear and I did not need to open many listings.']},
-    {id:2,name:'Toyota Harrier',category:'SUV',price:280,rating:4.7,reviewsCount:85,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuBrLldxAHyXk6brHfZkZ2YY-bnGKp7BvcasnysgjhN-wGcGWrrHCMbq08CHepX4f-4u4zSTZQsmHJkTa4YxJrq4Ue6R6mzn2aWCcHD7QdeUJIR9T2tVB-0dX19LMRbIwarlJSo29yDHqXXrxPVRxdcZtogNrZUEQmpyaMojjRBx7E4028TxmS-Zhd2UghYpFNVSqozqt37bRmbrfJA6Ejc_BjPapICcXrw2hutW7nDM0mnR1YxmYP5voikmh029KHqgLFiLzwFp0as',description:'A spacious SUV for group trips, fieldwork, and weekend travel around Labuan. Good for students carrying bags or equipment.',service:'June 2, 2026',servicePercent:78,nextService:'Next maintenance due in 1,900 km.',condition:['Exterior: Good','Interior: Clean','Aircond: Excellent','Tires: 85%'],reviews:['Perfect for group assignment trips. Spacious and easy to drive.','The pickup process was simple and the car condition was transparent.']},
-    {id:3,name:'Honda Civic',category:'Sedan',price:220,rating:4.6,reviewsCount:56,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://lh3.googleusercontent.com/aida-public/AB6AXuBGUtcXtCWu-MFj2h8QSD4aliaU6QA8z6KEpk1gy2mVmmZuSPDdy3-g1cAwM6DfnGkcIAxZxXPHbJ65DPYNjF81xXCvsH11uUlzI3vfaXD2nxZzFfp7-v-7CHyRReJR8MEOIhRi6UbYmSfgrh2n3_-BH2Dos_xvZHrRP9YK8LYbmitd7goGBh1aCW7mn9dtvf_-Vp5kvFxLxZDTmDYPwgJYVl1VdyTuiBwlkHXtc9bj6fWoHAvpG-y6pJkUQgn74NXjbwL7ddzcp6E',description:'A practical sedan for daily student use, campus activities, shopping, and short trips. Easy to handle and fuel efficient.',service:'May 18, 2026',servicePercent:82,nextService:'Next maintenance due in 2,100 km.',condition:['Exterior: Good','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['Nice car for daily errands around Labuan.','Clear details and reviews made the booking easier.']}
-  ];
+const fallbackCars = [
+  {id:1,name:'BMW 5 Series',category:'Sedan',price:350,rating:4.9,reviewsCount:128,transmission:'Auto',seats:'5 Seats',fuel:'Hybrid',image:'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80',description:'A comfortable premium sedan suitable for UMS Labuan students who need reliable transport for assignments, events, shopping, and short trips around Labuan.',service:'May 28, 2026',servicePercent:85,nextService:'Next maintenance due in 2,400 km.',condition:['Exterior: Excellent','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['The car was clean and comfortable. The condition report helped me feel confident before booking.','Availability status was clear and I did not need to open many listings.']},
+  {id:2,name:'Toyota Harrier',category:'SUV',price:280,rating:4.7,reviewsCount:85,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=80',description:'A spacious SUV for group travel around Labuan. Suitable for beach trips, airport pickup, family visits, and campus activities.',service:'June 2, 2026',servicePercent:78,nextService:'Next maintenance due in 1,800 km.',condition:['Exterior: Very Good','Interior: Clean','Aircond: Excellent','Fuel: Full'],reviews:['Spacious and smooth for a weekend trip.','Good choice for travelling with friends.']},
+  {id:3,name:'Perodua Myvi',category:'Compact',price:90,rating:4.5,reviewsCount:67,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',description:'A budget-friendly compact car for daily student use. Easy to park, fuel efficient, and suitable for short-distance trips.',service:'May 20, 2026',servicePercent:70,nextService:'Next maintenance due in 1,200 km.',condition:['Exterior: Good','Interior: Clean','Aircond: Good','Fuel: Full'],reviews:['Affordable and easy to drive.','Perfect for short trips around UMSKAL.']},
+  {id:4,name:'Honda Civic',category:'Sedan',price:180,rating:4.8,reviewsCount:94,transmission:'Auto',seats:'5 Seats',fuel:'Petrol',image:'https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1200&q=80',description:'A stylish sedan with balanced comfort and performance for city travel and campus activities.',service:'June 5, 2026',servicePercent:90,nextService:'Next maintenance due in 3,000 km.',condition:['Exterior: Excellent','Interior: Clean','Aircond: Excellent','Fuel: Full'],reviews:['Best value for a student group trip.','Comfortable and affordable.']}
+];
+const insuranceFee = 80;
+let currentCar = null;
 
-  function getCar() {
-    const stored = localStorage.getItem('selectedCar');
-    if (stored) return JSON.parse(stored);
-    const params = new URLSearchParams(window.location.search);
-    const id = Number(params.get('id')) || 1;
-    return fallbackCars.find(c => c.id === id) || fallbackCars[0];
-  }
+function todayISO(offsetDays = 0) { const d = new Date(); d.setDate(d.getDate() + offsetDays); return d.toISOString().split('T')[0]; }
+function safeJSON(key) { try { return JSON.parse(localStorage.getItem(key)); } catch(e) { return null; } }
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.remove('hidden'); setTimeout(() => t.classList.add('hidden'), 1800); }
+function normalizeCar(car) {
+  const fallback = fallbackCars.find(c => String(c.id) === String(car?.id)) || fallbackCars[0];
+  const merged = {...fallback, ...(car || {})};
+  merged.price = Number(merged.price) || fallback.price || 0;
+  merged.rating = Number(merged.rating) || fallback.rating || 0;
+  merged.reviewsCount = Number(merged.reviewsCount || merged.reviews || fallback.reviewsCount || 0);
+  if (!Array.isArray(merged.reviews)) merged.reviews = fallback.reviews || ['Good car condition.', 'Easy booking process.'];
+  if (!Array.isArray(merged.condition)) merged.condition = fallback.condition || ['Condition: Good'];
+  return merged;
+}
+function getCar() {
+  const selected = safeJSON('selectedCar');
+  if (selected) return normalizeCar(selected);
+  const booking = safeJSON('bookingCar');
+  if (booking) return normalizeCar(booking);
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get('id')) || 1;
+  return normalizeCar(fallbackCars.find(c => c.id === id));
+}
+function getStoredDates() {
+  const rentalDates = safeJSON('rentalDates') || {};
+  const bookingDraft = safeJSON('bookingDraft') || {};
+  return {
+    pickup: bookingDraft.pickupDate || localStorage.getItem('pickupDate') || rentalDates.pickup || todayISO(1),
+    returnDate: bookingDraft.returnDate || localStorage.getItem('returnDate') || rentalDates.returnDate || todayISO(3)
+  };
+}
+function getRentalDays(pickup, ret) {
+  if (!pickup || !ret) return 1;
+  const diff = new Date(ret + 'T00:00:00') - new Date(pickup + 'T00:00:00');
+  const days = Math.ceil(diff / 86400000);
+  return days < 1 ? 1 : days;
+}
+function showDateMessage(message) {
+  const box = document.getElementById('dateMessage');
+  box.textContent = message || '';
+  box.classList.toggle('hidden', !message);
+}
+function calculateAndRenderPrice() {
+  const pickupInput = document.getElementById('pickupDateInput');
+  const returnInput = document.getElementById('returnDateInput');
+  let pickup = pickupInput.value || todayISO(1);
+  let ret = returnInput.value || todayISO(3);
+  pickupInput.value = pickup;
+  if (new Date(ret + 'T00:00:00') <= new Date(pickup + 'T00:00:00')) {
+    const fixedReturn = new Date(pickup + 'T00:00:00'); fixedReturn.setDate(fixedReturn.getDate() + 1);
+    ret = fixedReturn.toISOString().split('T')[0]; returnInput.value = ret;
+    showDateMessage('Return date must be after pickup date, so it was adjusted to the next day.');
+  } else { returnInput.value = ret; showDateMessage(''); }
 
-  function saveCar(car) {
-    const saved = JSON.parse(localStorage.getItem('savedCars') || '[]');
-    if (!saved.some(item => item.id === car.id)) saved.push(car);
-    localStorage.setItem('savedCars', JSON.stringify(saved));
-    alert(car.name + ' has been saved.');
-  }
+  const days = getRentalDays(pickup, ret);
+  const subtotal = currentCar.price * days;
+  const total = subtotal + insuranceFee;
+  document.getElementById('days').textContent = days + (days === 1 ? ' day' : ' days');
+  document.getElementById('calculationText').textContent = `RM ${currentCar.price} × ${days} = RM ${subtotal}`;
+  document.getElementById('insuranceText').textContent = `RM ${insuranceFee}`;
+  document.getElementById('total').textContent = `RM ${total}`;
 
-  function renderCar() {
-    const car = getCar();
-    const pickup = localStorage.getItem('pickupDate') || 'Sat, Jun 15 · 10:00 AM';
-    const ret = localStorage.getItem('returnDate') || 'Mon, Jun 17 · 10:00 AM';
-    const days = 2;
-    const subtotal = car.price * days;
-    const total = subtotal + 80;
+  const draft = { carId: currentCar.id, pickupDate: pickup, returnDate: ret, days, subtotal, insuranceFee, total };
+  localStorage.setItem('pickupDate', pickup);
+  localStorage.setItem('returnDate', ret);
+  localStorage.setItem('bookingDraft', JSON.stringify(draft));
+  return draft;
+}
+function saveCar(car) {
+  const saved = safeJSON('savedCars') || [];
+  const exists = saved.some(c => String(c.id) === String(car.id));
+  if (!exists) saved.push(car);
+  localStorage.setItem('savedCars', JSON.stringify(saved));
+  showToast(exists ? 'Car already saved' : 'Car saved for comparison');
+}
+function renderStars(rating) {
+  const rounded = Math.round(Number(rating));
+  return '★'.repeat(Math.min(5, rounded)) + '☆'.repeat(Math.max(0, 5 - rounded));
+}
+function renderCar() {
+  currentCar = getCar();
+  const dates = getStoredDates();
+  document.title = `SahabatzRide | ${currentCar.name}`;
+  document.getElementById('mainImage').src = currentCar.image;
+  document.getElementById('mainImage').alt = currentCar.name;
+  document.getElementById('carName').textContent = currentCar.name;
+  document.getElementById('starText').textContent = renderStars(currentCar.rating);
+  document.getElementById('topRating').textContent = currentCar.rating.toFixed(1);
+  document.getElementById('topReviewCount').textContent = `(${currentCar.reviewsCount} Reviews)`;
+  document.getElementById('category').append(currentCar.category || '-');
+  document.getElementById('transmission').append(currentCar.transmission || '-');
+  document.getElementById('seats').append(currentCar.seats || '-');
+  document.getElementById('fuel').append(currentCar.fuel || '-');
+  document.getElementById('description').textContent = currentCar.description || 'No description available.';
+  document.getElementById('service').textContent = currentCar.service || currentCar.maintenance || 'Recently checked';
+  document.getElementById('serviceBar').style.width = (currentCar.servicePercent || 80) + '%';
+  document.getElementById('nextService').textContent = currentCar.nextService || 'Next maintenance will be updated by admin.';
+  document.getElementById('price').textContent = `RM ${currentCar.price}`;
+  document.getElementById('rating').textContent = currentCar.rating.toFixed(1);
+  document.getElementById('reviewTitle').append(`${currentCar.rating.toFixed(1)} · ${currentCar.reviewsCount} Reviews`);
+  document.getElementById('pickupDateInput').value = dates.pickup;
+  document.getElementById('returnDateInput').value = dates.returnDate;
+  document.getElementById('pickupDateInput').min = todayISO(0);
+  document.getElementById('returnDateInput').min = todayISO(1);
 
-    document.title = `SahabatzRide | ${car.name}`;
-    document.getElementById('mainImage').src = car.image;
-    document.getElementById('mainImage').alt = car.name;
-    document.getElementById('carName').textContent = car.name;
-    document.getElementById('category').append(car.category);
-    document.getElementById('transmission').append(car.transmission);
-    document.getElementById('seats').append(car.seats);
-    document.getElementById('fuel').append(car.fuel);
-    document.getElementById('description').textContent = car.description;
-    document.getElementById('service').textContent = car.service;
-    document.getElementById('serviceBar').style.width = (car.servicePercent || 80) + '%';
-    document.getElementById('nextService').textContent = car.nextService;
-    document.getElementById('price').textContent = 'RM ' + car.price;
-    document.getElementById('rating').textContent = car.rating;
-    document.getElementById('pickupDate').textContent = pickup;
-    document.getElementById('returnDate').textContent = ret;
-    document.getElementById('calculationText').textContent = `RM ${car.price} x ${days} days`;
-    document.getElementById('subtotal').textContent = `RM ${subtotal}`;
-    document.getElementById('total').textContent = `RM ${total}`;
-    document.getElementById('reviewTitle').append(`${car.rating} · ${car.reviewsCount} Reviews`);
+  const gallery = [currentCar.image, currentCar.image, currentCar.image];
+  document.getElementById('gallery').innerHTML = gallery.map((src, i) => `<button type="button" class="aspect-square rounded-lg overflow-hidden ${i===0?'border-2 border-primary':'opacity-80 hover:opacity-100'}" onclick="document.getElementById('mainImage').src='${src}'"><img class="w-full h-full object-cover" src="${src}" alt="${currentCar.name} gallery image"></button>`).join('') + `<div class="aspect-square rounded-lg bg-black/60 text-white flex items-center justify-center font-label-md">+12 Photos</div>`;
+  document.getElementById('conditionTags').innerHTML = currentCar.condition.map(item => `<span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1"><span class="material-symbols-outlined text-sm">check</span>${item}</span>`).join('');
+  document.getElementById('reviews').innerHTML = currentCar.reviews.map((review, i) => `<div class="space-y-sm bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden"><img src="https://i.pravatar.cc/100?img=${i+20}" class="w-full h-full object-cover" alt="Reviewer"></div><div><p class="font-label-md text-on-surface">${i===0?'Sandra Lim':'Aiman Hakim'}</p><p class="text-caption text-on-surface-variant">${i===0?'2 weeks ago':'1 month ago'}</p></div></div><div class="text-yellow-600">${renderStars(currentCar.rating)}</div><p class="text-body-md text-on-surface-variant">${review}</p></div>`).join('');
 
-    const gallery = [car.image, car.image, car.image];
-    document.getElementById('gallery').innerHTML = gallery.map((src, index) => `
-      <div class="aspect-square rounded-lg overflow-hidden ${index === 0 ? 'border-2 border-primary' : 'opacity-80 hover:opacity-100'}">
-        <img class="w-full h-full object-cover" src="${src}" alt="${car.name} gallery image">
-      </div>`).join('') + `<div class="aspect-square rounded-lg bg-black/60 text-white flex items-center justify-center font-label-md">+12 Photos</div>`;
-
-    document.getElementById('conditionTags').innerHTML = car.condition.map(item => `
-      <span class="px-3 py-1 bg-surface-container-highest rounded-full text-caption font-caption flex items-center gap-1">
-        <span class="material-symbols-outlined text-sm">check</span>${item}
-      </span>`).join('');
-
-    document.getElementById('reviews').innerHTML = car.reviews.map((review, index) => `
-      <div class="space-y-sm bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden"><img src="https://i.pravatar.cc/100?img=${index + 20}" class="w-full h-full object-cover"></div>
-          <div><p class="font-label-md text-on-surface">${index === 0 ? 'Sandra Lim' : 'Aiman Hakim'}</p><p class="text-caption text-on-surface-variant">${index === 0 ? '2 weeks ago' : '1 month ago'}</p></div>
-        </div>
-        <div class="text-yellow-600">★★★★★</div>
-        <p class="text-body-md text-on-surface-variant">${review}</p>
-      </div>`).join('');
-
-    document.getElementById('saveBtn').addEventListener('click', () => saveCar(car));
-    document.getElementById('reserveBtn').addEventListener('click', () => {
-      localStorage.setItem('bookingCar', JSON.stringify(car));
-      localStorage.setItem('bookingTotal', total);
-      window.location.href = 'booking.html';
-    });
-  }
-
-  renderCar();
+  document.getElementById('pickupDateInput').addEventListener('change', () => {
+    const pickup = document.getElementById('pickupDateInput').value;
+    const nextDay = new Date(pickup + 'T00:00:00'); nextDay.setDate(nextDay.getDate() + 1);
+    document.getElementById('returnDateInput').min = nextDay.toISOString().split('T')[0];
+    calculateAndRenderPrice();
+  });
+  document.getElementById('returnDateInput').addEventListener('change', calculateAndRenderPrice);
+  document.getElementById('saveBtn').addEventListener('click', () => saveCar(currentCar));
+  document.getElementById('reserveBtn').addEventListener('click', () => {
+    const draft = calculateAndRenderPrice();
+    localStorage.setItem('bookingCar', JSON.stringify(currentCar));
+    localStorage.setItem('currentBooking', JSON.stringify({...draft, car: currentCar, status:'Pending Confirmation'}));
+    window.location.href = 'booking.html';
+  });
+  calculateAndRenderPrice();
+}
+renderCar();
 </script>
 </body>
 </html>
